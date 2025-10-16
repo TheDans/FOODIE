@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Student Login</title>
+		<title>Admin Login</title>
 
 		<!-- Google Font -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,7 +12,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="login_style.css">
+		<link rel="stylesheet" href="adminlogin.css">
 		<!-- jQuery -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 		
@@ -38,7 +38,7 @@
 				else if(m =='')
 				{
 					$('#MatricNo').css("background-color","#ffb3b3");
-					alert("Please fill Matric Number fields!");
+					alert("Please fill Username fields!");
 					return false;
 				}
 				else if(ic =='')
@@ -80,7 +80,7 @@
 			<nav class="nav-links">
 				<a href="#">ABOUT US</a>
 				<a href="admin.html">ADMIN LOGIN</a>
-				<a href="#">STUDENT LOGIN</a>
+				<a href="login.html">STUDENT LOGIN</a>
 			</nav>
 		</div>
     </div>
@@ -90,10 +90,10 @@
 
 		<!-- Login Card (Centered) -->
 		<div class="login-card">
-			<h2 class="card-title">STUDENT LOGIN</h2>
+			<h2 class="card-title">ADMIN LOGIN</h2>
 			
-			<form id="login" name="login" method="post" action="login.html">
-				<label for="MatricNo">Matric ID</label>
+			<form id="login" name="login" method="post" action="admin.html">
+				<label for="MatricNo">Username</label>
 				<input type="text" name="MatricNo" id="MatricNo" placeholder="Enter here" maxlength="10" />
 
 				<label for="studIcNo">IC Number</label>

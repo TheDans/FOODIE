@@ -6,7 +6,7 @@
 
         /* Base Styles: Deep red background, primary font set to Poppins */
         body {
-            background: #4F000B; /* Deep maroon/red background */
+            background: #720026; /* Deep maroon/red background */
             font-family: 'Poppins', sans-serif; /* Changed font to Poppins */
             min-height: 100vh;
             display: flex;
@@ -128,7 +128,7 @@
 
         /* Button: Dark Maroon, centered */
         .btn {
-            background-color: #4F000B; /* Button color from the image */
+            background-color: #720026; /* Button color from the image */
             border-radius: 20px;
             border: none;
             color: white;
@@ -141,7 +141,7 @@
             margin-right: auto;
         }
         .btn:hover {
-            background-color: #6D1729; /* Darker red on hover */
+            background-color: #84002c; /* Darker red on hover */
         }
 
         /* --- Message Box (replacing alert()) --- */
