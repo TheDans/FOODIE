@@ -13,7 +13,7 @@
   padding: 0;
   font-family: Arial, sans-serif; /* Use a common sans-serif font */
 }
-  
+
 a {
   text-decoration: none;
   text-align: center;
@@ -67,10 +67,6 @@ aside {
   gap: 25px;
 }
 
-.nav-menu a:hover {
-  color: var(--primary-color);
-}
-
 .nav-item {
   text-decoration: none;
   color: var(--text-dark);
@@ -81,8 +77,12 @@ aside {
   margin-bottom: 50px;
 }
 
-.nav-item.active {
+.nav-items.active {
   color: var(--text-light);
+}
+
+.nav-items:hover {
+  color: var(--primary-color);
 }
 
 /* Main content area */
@@ -96,7 +96,7 @@ aside {
 
 /* Header/title bar */
 .header-title {
-  background-color: #CE4257;
+  background-color: var(--primary-color);
   color: white;
   font-size: 48px;
   font-weight: bold;
@@ -106,7 +106,9 @@ aside {
 }
 
 /* Card styles */
-.info-section {
+.profile-card-container,
+.info-section,
+.statistic-section {
   background-color: white;
   padding: 30px;
   margin-bottom: 30px;
@@ -114,8 +116,32 @@ aside {
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
 }
 
-.info-section h3 {
-  color : #CE4257;
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eee;
+  background-color: #eee;
+}
+
+.profile-info h2 {
+  font-size: 24px;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.profile-info .role,
+.profile-info .gender {
+  color: var(--text-light);
+  font-size: 16px;
+  margin: 0;
 }
 
 /* Section Styling*/
@@ -124,14 +150,16 @@ aside {
   color: var(--primary-color);
   padding-bottom: 10px;
   margin-bottom: 20px;
-  border-bottom: #CE4257 solid 3px;
+  border-bottom: #7b002c solid 3px;
   font-weight: bold;
 }
 
 .info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px 40px;
+}
+.info-grid h3 {
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 .info-item {
@@ -154,6 +182,9 @@ aside {
   text-transform: uppercase;
 }
 
+.order-id {
+  color: var(--primary-color);
+}
 @media (max-width: 1024px) {
   .sidebar {
     width: 180px;

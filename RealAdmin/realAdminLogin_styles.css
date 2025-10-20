@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Styles: Deep red background, primary font set to Poppins */
+body {
+  background: #000000; /* Deep maroon/red background */
+  font-family: "Poppins", sans-serif; /* Changed font to Poppins */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px; /* Space for the fixed header */
+}
+
+/* --- Header Bar (Top Navigation) --- */
+.header-bar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  background: white; /* Changed to white */
+  color: #1f2937; /* Dark text for contrast */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-top: 0px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.logo {
+  font-family: "Poppins", sans-serif; /* Changed font to Poppins */
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: 4.8px;
+  box-shadow: 5px 3px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.content-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: -80px;
+}
+
+/* Thin dark line below the header */
+
+.nav-links a {
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 35px;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  opacity: 0.7; /* Adjusted opacity for better contrast on white */
+}
+
+/* --- Login Card --- */
+.login-card {
+  background: #f8f5f2; /* Light beige/off-white color from image */
+  width: 380px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: auto; /* Centers the card vertically within the remaining space */
+}
+
+.card-title {
+  font-family: "Poppins", sans-serif; /* Changed font to Poppins */
+  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 4.8px; /* UPDATED: Letter spacing set to 4.8px */
+  font-weight: 700;
+}
+
+/* --- Form Styling --- */
+form {
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #1f2937;
+  margin-bottom: 0px;
+  font-weight: 0; /* Using Poppins bold weight */
+  margin-top: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #1f2937;
+  background-color: white;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #8c253b; /* Accent color on focus */
+}
+
+/* Button: Dark Maroon, centered */
+.btn {
+  background-color: #000000; /* Button color from the image */
+  border-radius: 20px;
+  border: none;
+  color: white;
+  text-align: center;
+  display: block;
+  width: 60%;
+  margin-top: 40px;
+  padding: 12px 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn:hover {
+  background-color: #414141; /* Darker red on hover */
+}
+
+.register {
+  font-size: 10px;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #1f2937;
+  transition: 0.2s;
+}
+.register:hover {
+  opacity: 0.7;
+}
