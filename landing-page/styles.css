@@ -89,6 +89,9 @@ body {
   height: 700px;
   background-color: #4a001f; /* solid background (right side) */
   overflow: hidden;
+
+  justify-content : center;
+  grid-template-rows: repeat(2, 1fr);
 }
 
 /* Left triangle background image */
@@ -106,23 +109,31 @@ body {
 }
 
 .left-side,.right-side {
+  display : inline-block;
+  padding-top : 250px;
   position: relative;
   z-index: 2;
   color: white;
 }
 
+.left-side {
+  width: 55%;
+  text-align: center;
+  padding-left : 50px;
+  padding-top : 100px;
+}
+
 .left-side h2 {
-  padding-left : 200px;
-  padding-top : 120px;
-  font-size: 2.0rem;
+  font-size: 2.3rem;
   line-height: 1.6;
   font-weight: 600;
+  display : inline;
+  text-align: center;
 }
 
 .right-side {
   width: 35%;
   text-align: center;
-  padding-left : 1200px;
 }
 
 .right-side h3 {
