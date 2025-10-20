@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Student Login</title>
+    <title>Admin Login</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="login_style.css" />
+    <link rel="stylesheet" href="stafflogin.css" />
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
@@ -32,30 +32,30 @@
       //jQuery for validate blank input
       $(document).ready(function () {
         $('input[type="submit"]').click(function () {
-          var m = $("#MatricNo").val();
-          var p = $("#password").val();
+          var m = $("#username").val();
+          var ic = $("#password").val();
 
           // Checking for blank fields.
-          if (m == "" && p == "") {
+          if (m == "" && ic == "") {
             $('input[type="text"]').css("background-color", "#ffb3b3");
             $('input[type="password"]').css("background-color", "#ffb3b3");
             alert("Please fill all fields!");
             return false;
           } else if (m == "") {
-            $("#MatricNo").css("background-color", "#ffb3b3");
-            alert("Please fill Matric Number fields!");
+            $("#username").css("background-color", "#ffb3b3");
+            alert("Please fill Username fields!");
             return false;
-          } else if (p == "") {
+          } else if (ic == "") {
             $("#password").css("background-color", "#ffb3b3");
-            alert("Please fill Password fields!");
+            alert("Please Password fields!");
             return false;
           } else {
             return true;
           }
         });
 
-        $("#MatricNo").focus(function () {
-          $("#MatricNo").css("background-color", "#99ccff");
+        $("#username").focus(function () {
+          $("#username").css("background-color", "#99ccff");
         });
 
         $("#password").focus(function () {
@@ -77,10 +77,10 @@
     <div class="header-bar">
       <div class="logo">FOODIE.</div>
       <nav class="nav-links">
-        <a href="/FOODIE/landing-page/index.html">ABOUT US</a>
-        <a href="/FOODIE/RealAdmin/realAdminLogin.html">ADMIN LOGIN</a>
-        <a href="/FOODIE/staff/staff.html">STAFF LOGIN</a>
-        <a href="login.html">STUDENT LOGIN</a>
+        <a href="/FOODIE/	landing-page/index.html">ABOUT US</a>
+        <a href="/FOODIE/RealAdmin/realAdminLogin.HTML">ADMIN LOGIN</a>
+        <a href="Staff.html">STAFF LOGIN</a>
+        <a href="/FOODIE/student/login.html">STUDENT LOGIN</a>
       </nav>
     </div>
   </div>
@@ -88,32 +88,33 @@
   <body>
     <!-- Login Card (Centered) -->
     <div class="login-card">
-      <h2 class="card-title">STUDENT LOGIN</h2>
+      <h2 class="card-title">STAFF LOGIN</h2>
 
       <form id="login" name="login" method="post" action="plogin.php">
-        <label for="MatricNo">Matric ID</label>
+        <label for="username">Username</label>
         <input
           type="text"
-          name="MatricNo"
-          id="MatricNo"
+          name="username"
+          id="username"
           placeholder="Enter here"
           maxlength="10"
-          required
         />
 
-        <label for="password">Password</label>
+        <label for="studIcNo">Password</label>
         <!-- Note: Changed placeholder to "Enter here" to match the image -->
         <input
           type="password"
           name="password"
           id="password"
           placeholder="Enter here"
-          maxlength="100"
-          required
+          maxlength="255"
         />
+
         <input type="submit" class="btn" name="btnlogin" value="LOGIN" />
       </form>
-      <a class="register" href="register.html">No account?Create now</a>
     </div>
+
+    <!-- Removed the original logo, h1, hr, and admin link below the form as they do not appear in the card in the image.
+			The admin link is now in the top navigation bar. -->
   </body>
 </html>
