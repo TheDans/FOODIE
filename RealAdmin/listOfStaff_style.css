@@ -13,7 +13,7 @@
   padding: 0;
   font-family: Arial, sans-serif; /* Use a common sans-serif font */
 }
-  
+
 a {
   text-decoration: none;
   text-align: center;
@@ -67,10 +67,6 @@ aside {
   gap: 25px;
 }
 
-.nav-menu a:hover {
-  color: var(--primary-color);
-}
-
 .nav-item {
   text-decoration: none;
   color: var(--text-dark);
@@ -81,8 +77,12 @@ aside {
   margin-bottom: 50px;
 }
 
-.nav-item.active {
+.nav-items.active {
   color: var(--text-light);
+}
+
+.nav-items:hover {
+  color: var(--primary-color);
 }
 
 /* Main content area */
@@ -96,7 +96,7 @@ aside {
 
 /* Header/title bar */
 .header-title {
-  background-color: #CE4257;
+  background-color: black;
   color: white;
   font-size: 48px;
   font-weight: bold;
@@ -106,7 +106,9 @@ aside {
 }
 
 /* Card styles */
-.info-section {
+.profile-card-container,
+.info-section,
+.statistic-section {
   background-color: white;
   padding: 30px;
   margin-bottom: 30px;
@@ -114,17 +116,41 @@ aside {
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
 }
 
-.info-section h3 {
-  color : #CE4257;
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eee;
+  background-color: #eee;
+}
+
+.profile-info h2 {
+  font-size: 24px;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.profile-info .role,
+.profile-info .gender {
+  color: var(--text-light);
+  font-size: 16px;
+  margin: 0;
 }
 
 /* Section Styling*/
 .section-title {
   font-size: 24px;
-  color: var(--primary-color);
+  color: black;
   padding-bottom: 10px;
   margin-bottom: 20px;
-  border-bottom: #CE4257 solid 3px;
+  border-bottom: #000000 solid 3px;
   font-weight: bold;
 }
 
@@ -152,6 +178,50 @@ aside {
   font-weight: bold;
   color: var(--text-dark);
   text-transform: uppercase;
+}
+/* statistic section */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  padding-top: 10px;
+}
+
+.stat-item {
+  border-right: 1px solid var(--border-color);
+}
+
+.stat-label {
+  font-size: 14px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.stat-value {
+  font-size: 40px;
+  color: var(--text-dark);
+  font-weight: bold;
+  display: block;
+}
+
+.action-icons {
+  display: flex;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  background-color: #000000; /* deep maroon */
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  object-fit: contain;
 }
 
 @media (max-width: 1024px) {
