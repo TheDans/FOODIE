@@ -44,7 +44,7 @@ $row = mysqli_num_rows($qry);
 			$_SESSION['order4Receipt'] = ""; //after checkout, orderID will be new but the orderID that has been ordered before will be save in this $_SESSION
 			
 			//header("Location: "); 
-            header("Location:homecopy.php");
+            header("Location:listOfStaff.php");
 
 		
 			}
