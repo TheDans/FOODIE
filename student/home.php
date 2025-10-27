@@ -41,8 +41,8 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
           <div class="logo">FOODIE.</div>
         </div>
         <nav class="nav-menu">
-          <a href="#" class="nav-item active">HOME</a>
-          <a href="#" class="nav-item">SEARCH</a>
+          <a href="home.php" class="nav-item active">HOME</a>
+          <a href="search.php" class="nav-item">SEARCH</a>
           <a href="#" class="nav-item">RECEIPTS</a>
           <a href="#" class="nav-item">CART, DORM &amp; DATES</a>
           <a href="adminContact.php" class="nav-item">STAFF CONTACT</a>  
