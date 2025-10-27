@@ -31,7 +31,7 @@ echo'
         </div>
         <nav class="nav-menu">
           <a href="home.php" class="nav-item">HOME</a>
-          <a href="#" class="nav-item">SEARCH</a>
+          <a href="search.php" class="nav-item">SEARCH</a>
           <a href="#" class="nav-item">RECEIPTS</a>
           <a href="#" class="nav-item">CART, DORM &amp; DATES</a>
           <a href="#" class="nav-item active">STAFF CONTACT</a>
