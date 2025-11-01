@@ -48,6 +48,7 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
             <div class="choose">
               <label for="typeID">CHOOSE TYPE:</label>
               <select name="typeID" id="typeID" class="chooseselect">
+                 <option value="ALL" selected>All Products</option>
                 <?php 
                   $sqlprodtypes = "SELECT * FROM prodtypes ORDER BY typeID ASC";
                   $qryprodtypes = mysqli_query($conn, $sqlprodtypes);

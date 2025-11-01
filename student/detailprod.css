@@ -13,7 +13,7 @@
   padding: 0;
   font-family: Arial, sans-serif; /* Use a common sans-serif font */
 }
-  
+
 a {
   text-decoration: none;
   text-align: center;
@@ -73,6 +73,7 @@ aside {
   font-weight: regular;
   font-size: 15px;
   padding: 5px 0px;
+  transition: color 0.2s;
   margin-bottom: 50px;
 }
 
@@ -113,6 +114,7 @@ aside {
   margin-bottom: 30px;
   border-radius: var(--rounded-radius);
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
+  height: 50vh;
 }
 
 .profile-card {
@@ -157,6 +159,7 @@ aside {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px 40px;
+  margin-bottom: 120px;
 }
 
 .info-item {
@@ -170,7 +173,7 @@ aside {
   color: var(--text-light);
   text-transform: uppercase;
   margin-bottom: 5px;
-  margin-left:25%;
+  margin-left: 25%;
 }
 
 .info-value {
@@ -178,7 +181,7 @@ aside {
   font-weight: bold;
   color: var(--text-dark);
   text-transform: uppercase;
-  margin-left:25%;
+  margin-left: 25%;
 }
 /* statistic section */
 
@@ -279,163 +282,38 @@ aside {
   }
 }
 
-.back{
-    background-color: #720026;
-    border-radius: 20px;
-    border: none;
-    color: white;
-    text-align: center;
-    display:block;
-    width: 90px;
-    margin-top: 40px;
-    padding: 9px 10px;
-    font-weight: 0px;
-    margin-left:auto;
-}
-
-.back:hover{
-     background-color: #87002d;
-}
-
-.product-section{
-     background-color: white;
-     padding: 30px;
-    margin-bottom: 30px;
-    border-radius:0px;
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
-    width: 76%;
-    display:inline-block;
-}
-.btn{
-  display: inline-block;
-  background-color: #5AB071;
-  border-radius: 30px;  
-  width: 100px;
-  box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
-  margin-bottom: 30px;
-}
-
-.btn:hover{
-  background-color: #63c57d;
-} 
-.product{
-  display:flex;
-  align-items: center;
-  gap: 70px;
-}
-
-.product-grid{
-  margin-bottom: 10px;
-}
-table{
-  width: 95%;
-  text-align: center;
-  border-spacing: 0;
-}
-
-tr{
-    background-color: white;
-     padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
-    width: 76%;
-}
-
-/* Add these styles to your existing CSS */
-
-/* Table container styling */
-.product-section {
-    background-color: white;
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: var(--rounded-radius);
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
-    width: 100%;
-    display: block;
-}
-
-/* Table styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Table header styling */
-th {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 15px 10px;
+.section-title {
+    font-size: 24px;
+    color: var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: #7b002c solid 3px;
     font-weight: bold;
-    text-transform: uppercase;
-    font-size: 14px;
 }
 
-/* First header cell - rounded top-left corner */
-th:first-child {
-    border-top-left-radius: 15px;
+button{
+    background-color: #720026;
+   color: white;
+   border: none;
+   border-radius: 30px;
+    padding: 10px;
+    font-family: 'Poppins';
+    
+   
 }
 
-/* Last header cell - rounded top-right corner */
-th:last-child {
-    border-top-right-radius: 15px;
+button:hover{
+    background-color: #87002d;
 }
 
-/* Table row styling */
-tr {
-    background-color: white;
-    border-bottom: 1px solid var(--border-color);
+.cart{
+    margin-left: 70%;
+}
+.button-grid{
+    display: flex;
 }
 
-/* Table cell styling */
-td {
-    padding: 15px 10px;
-    color: var(--text-dark);
-    font-size: 14px;
-}
-
-/* Alternate row coloring for better readability */
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Last row - rounded bottom corners */
-tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
-
-tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}
-
-/* Button styling */
-.btn {
-    display: inline-block;
-    background-color: #5AB071;
-    border-radius: 30px;
-    width: 100px;
-    padding: 8px 0;
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, 25%);
-    margin: 0 auto;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #63c57d;
-}
-
-.btn img {
+img{
     width: 20px;
-    height: 20px;
-    vertical-align: middle;
 }
 
-/* Remove the old product-grid and product styles */
-.product-grid {
-    margin-bottom: 0;
-}
-
-.product {
-    display: none; /* Hide this as we're using table layout */
-}
