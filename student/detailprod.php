@@ -209,11 +209,11 @@ if(isset($_POST['another']))
         </section>
         <form method="post">
           <div class="buttton-grid">
-            <button type="submit" name ="select" class="cart">Add To Cart 
-              <img src="/images/cart.png" alt="" >
-            </button>
+            <!--<button type="submit" name ="select" class="cart">Add To Cart 
+              <img src="/FOODIE/images/cart.png" alt="" >
+            </button>-->
             <button type="submit" name="another" class="other">Select Another Product
-              <img src="/images/go_back.png" alt="">
+              <img src="/FOODIE/images/go_back.png" alt="">
             </button>
           </div>
           
