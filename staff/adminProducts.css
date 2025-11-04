@@ -239,6 +239,15 @@ tr:last-child td:last-child {
   border-bottom-right-radius: 15px;
 }
 
+.expandable-table {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.expandable-table:hover {
+  background-color: #ffe3e7;
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 180px;

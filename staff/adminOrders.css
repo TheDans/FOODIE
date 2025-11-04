@@ -171,6 +171,123 @@ aside {
   cursor: pointer;
 }
 
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Table header styling */
+th {
+  background-color: #ce4257;
+  color: white;
+  padding: 15px 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* First header cell - rounded top-left corner */
+th:first-child {
+  border-top-left-radius: 15px;
+}
+
+/* Last header cell - rounded top-right corner */
+th:last-child {
+  border-top-right-radius: 15px;
+}
+
+/* Table row styling */
+tr {
+  background-color: white;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Table cell styling */
+td {
+  padding: 15px 10px;
+  color: var(--text-dark);
+  font-size: 14px;
+}
+
+/* Alternate row coloring for better readability */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Last row - rounded bottom corners */
+tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
+}
+
+/* --- Hidden Detail Row (The row containing the nested table) --- */
+.hidden-row {
+  display: none !important;
+}
+
+/* Smooth expand animation: makes the row visible */
+.hidden-row.show {
+  display: table-row !important; /* Show when toggled */
+  animation: fadeIn 0.3s ease;
+}
+
+/* Style the single cell inside the hidden row */
+.hidden-row td {
+  padding: 0; /* Important: removes default padding from the outer cell */
+  border: none;
+}
+
+/* --- Nested Table (The actual order details) --- */
+.nested-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffebee; /* Pink background for the details box */
+  border-radius: 10px;
+  padding: 20px; /* Padding for the inner content */
+  color: #5a000f;
+  box-sizing: border-box; /* Ensures padding is included in the 100% width */
+}
+
+/* Style the header and data rows of the nested table */
+.nested-table th,
+.nested-table td {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.nested-header th {
+  border-bottom: 1px solid #f9d8dd; /* Light separator line */
+}
+
+/* --- Animation Keyframes --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 180px;
