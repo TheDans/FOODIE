@@ -1,3 +1,25 @@
+<?php
+  session_start();
+  include("studconnection.php");
+
+  if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
+  {
+      header("Location:/FOODIE/landing-page/index.html");
+  }
+
+  $studID = $_SESSION['studID'];
+  $sql = "SELECT * FROM students WHERE studID='$studID'";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+  $studID = $row['studID'];
+  $studName = $row['studName'];
+  $studGender = $row['studGender'];
+  $studPhoneNo = $row['studPhoneNo'];
+  $matricNo = $row['MatricNo'];
+  $studIcNo = $row['studIcNo'];
+  $studEmail = $row['studEmail'];
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,7 +60,24 @@
               />
             </div>
             <div class="profile-info">
-              <h2>John Doe</h2>
+              <p class="id">Student ID:</p>
+              <p class="studID"><?php echo $studID; ?></p>
+
+              <h1>Username: </h1>
+              <p><?php echo $studName; ?></p>
+                
+              <h1>Email: </h1>
+              <p><?php echo $studEmail; ?></p>
+
+              <h1>Phone No: </h1>
+              <p><?php echo $studPhoneNo; ?></p>
+
+              <h1>Matric No: </h1>
+              <p><?php echo $matricNo; ?></p>
+
+              <h1>Password: </h1>
+              <p>********</p>
+
               <p class="role">Student</p>
               <p class="gender">Male</p>
             </div>

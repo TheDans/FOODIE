@@ -209,6 +209,14 @@ aside {
   display: block;
 }
 
+.id {
+  font-weight: bold;
+}
+
+.studID, .id {
+  display: inline;
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 180px;
