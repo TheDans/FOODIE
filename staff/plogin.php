@@ -11,7 +11,7 @@ $username = mysqli_real_escape_string($conn,$_POST['username']);
 $password = mysqli_real_escape_string($conn,$_POST['password']);
 
 
-$sql = "SELECT * FROM staff s 
+$sql = "SELECT * FROM admins s 
 		where username = '$username'
 		and password = '$password'";
 
@@ -32,10 +32,10 @@ $row = mysqli_num_rows($qry);
 			$_SESSION['userlogged'] = 1;
 			$_SESSION['username'] = $username;
 			$_SESSION['password'] = $password;
-			$_SESSION['staffName'] = $r['staffName'];
-            $_SESSION['staffID'] = $r['staffID'];
-            $_SESSION['staffEmail'] = $r['staffEmail'];
-            $_SESSION['staffPhoneNo'] = $r['staffPhoneNo'];
+			$_SESSION['adminName'] = $r['adminName'];
+            $_SESSION['adminID'] = $r['adminID'];
+            $_SESSION['adminEmail'] = $r['adminEmail'];
+            $_SESSION['adminPhoneNo'] = $r['adminPhoneNo'];
 			
 			
 			//use when stud order product
@@ -52,7 +52,7 @@ $row = mysqli_num_rows($qry);
 		{
 			echo
 			"<script language='javascript'>
-				alert('staff does not exist.');
+				alert('admin does not exist.');
 				window.location='Staff.html';
 			</script>";
 		}
