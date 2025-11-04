@@ -151,14 +151,15 @@
               <span class="stat-label">PRODUCT PURCHASED</span>
               <span class="stat-value">
                 <?php
-							$studID = $_SESSION['studID'];
-						
-							$sql = "SELECT DISTINCT COUNT(od.detailID) as cnt FROM orderdetails od 
-							INNER JOIN orders o ON od.orderID = o.orderID WHERE o.studID='$studID'";
+                  $studID = $_SESSION['studID'];
+                
+                  $sql = "SELECT DISTINCT COUNT(od.detailID) as cnt FROM orderdetails od 
+                  INNER JOIN orders o ON od.orderID = o.orderID WHERE o.studID='$studID'";
 
-							$qry = mysqli_query($conn, $sql);
-							$count = mysqli_fetch_assoc($qry)['cnt'];
-							echo $count;?>
+                  $qry = mysqli_query($conn, $sql);
+                  $count = mysqli_fetch_assoc($qry)['cnt'];
+                  echo $count;
+                ?>
 						</span>
             </div>
             <div class="stat-item">
