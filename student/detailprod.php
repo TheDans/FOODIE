@@ -24,7 +24,7 @@ if (isset($_POST['select']))
 	$detailID = $_POST['detailID'];
 	$prodID = $_POST['prodID'];
 	$studID = $_POST['studID'];
-	$prodName = $_POST['prodName'];
+	$prodName = $_POST['prodName'];	
 
 	function checkOrderID($conn,$orderID)
 	{
@@ -85,7 +85,7 @@ if (isset($_POST['select']))
 					
 				if (mysqli_query($conn, $insertOrderDetails)) 
 				{
-					$_SESSION['logoutPermission'] = 0; //no log out
+					$_SESSION['logoutPermission'] = 1; //no log out
 					
 					echo "<script language='javascript'>
 					alert('Product on new order has been add into the cart.');window.location='/FOODIE/student/search.php';</script>";
@@ -177,15 +177,45 @@ if(isset($_POST['another']))
       <!-- MAIN CONTENT -->
       <main class="main-content">
         <header class="header-title">Search</header>
-  
+ 		 <form method="post">
+
+			<input type="hidden" name="detailID" maxlength="5" value=
+				<?php
+					$i = 1;
+					while($i == 1)
+					{
+						$uniqId = substr(str_shuffle("0123456789"), 0, 3);
+
+						$detailID = "DT".$uniqId;
+									
+						$sql = "SELECT detailID FROM orderdetails WHERE detailID='".$detailID."'";
+						$qry=mysqli_query($conn,$sql);
+						$row=mysqli_num_rows($qry);
+						
+						if($row > 0)
+						{
+							$i = 1;
+						}
+						else
+						{
+							$i = -1;
+							echo $detailID;
+						}
+					}
+				?>>
+				<input type="hidden" name="studID" value="<?php echo $_SESSION['studID'] ?>" readonly>
+  				<input type="hidden" name="prodID" value="<?php echo $data['prodID']; ?>">
+  				<input type="hidden" name="studID" value="<?php echo $_SESSION['studID']; ?>">
+  				<input type="hidden" name="prodName" value="<?php echo $data['prodName']; ?>">
         <!-- personal information section-->
         <section class="info-section"> 
           <h3 class="section-title">YOUR ORDER ID: <?php echo $_SESSION['orderID']; ?></h3>
           <div class="info-grid">
             <div class="info-item">
                 <span class="info-label">Product ID</span>
-                <span class="info-value"><?php echo $data['prodID'] ?></span>
+                <span class="info-value"><?php echo $data['prodID'] ?></span> 
             </div>
+			
             <div class="info-item">
                 <span class="info-label">Price</span>
                 <span class="info-value"><?php echo $data['price'] ?></span>
@@ -200,6 +230,7 @@ if(isset($_POST['another']))
             <div class="info-item">
                 <span class="info-label">Product Name</span>
                 <span class="info-value"><?php echo $data['prodName'] ?></span>
+				
             </div>
             <div class="info-item">
                 <span class="info-label">Description</span>
@@ -208,11 +239,11 @@ if(isset($_POST['another']))
           </div>
           
         </section>
-        <form method="post">
+        
           <div class="buttton-grid">
-            <!--<button type="submit" name ="select" class="cart">Add To Cart 
+            <button type="submit" name ="select" class="cart">Add To Cart 
               <img src="/FOODIE/images/cart.png" alt="" >
-            </button>-->
+            </button>
             <button type="submit" name="another" class="other">Select Another Product
               <img src="/FOODIE/images/go_back.png" alt="">
             </button>
