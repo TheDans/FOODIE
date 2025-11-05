@@ -83,7 +83,7 @@ aside {
 }
 
 .nav-item.active {
-  color: var(--text-light);
+  color: #7b002c;
 }
 
 /* Main content area */

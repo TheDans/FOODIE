@@ -41,7 +41,7 @@
           <a href="receipts.html" class="nav-item">RECEIPTS</a>
           <a href="cart.html" class="nav-item">CART, DORM & DATES</a>
           <a href="adminContact.php" class="nav-item">ADMIN CONTACT</a>
-          <a href="setting.html" class="nav-item active">SETTINGS</a>
+          <a href="" class="nav-item active">SETTINGS</a>
           <a href="logout.php" class="nav-item">LOG OUT</a>
         </nav>
       </aside>
@@ -63,11 +63,14 @@
               <p class="id">Student ID:</p>
               <p class="studID"><?php echo $studID; ?></p>
 
-              <h1>Username: </h1>
-              <p><?php echo $studName; ?></p>
-                
-              <h1>Email: </h1>
-              <p><?php echo $studEmail; ?></p>
+              <div class="info-row">
+                <h1>Username:</h1>
+                <p><?php echo $studName; ?></p>
+              </div>
+              <div class="info-row">
+                <h1>Email:</h1>
+                <p><?php echo $studEmail; ?></p>
+              </div>
 
               <h1>Phone No: </h1>
               <p><?php echo $studPhoneNo; ?></p>

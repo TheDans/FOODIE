@@ -78,8 +78,8 @@ aside {
   margin-bottom: 50px;
 }
 
-.nav-items.active {
-  color: var(--text-light);
+.nav-item.active {
+  color: #7b002c;
 }
 
 .nav-items:hover {
@@ -155,8 +155,6 @@ aside {
   font-weight: bold;
 }
 
-.info-grid {
-}
 .info-grid h3 {
   text-align: center;
   padding-bottom: 50px;
