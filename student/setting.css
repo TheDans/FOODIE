@@ -78,8 +78,8 @@ aside {
   margin-bottom: 60px;
 }
 
-.nav-items.active {
-  color: var(--text-light);
+.nav-item.active {
+  color: #7b002c;
 }
 
 .nav-items:hover {
@@ -132,19 +132,6 @@ aside {
   background-color: #eee;
 }
 
-.profile-info h2 {
-  font-size: 24px;
-  color: var(--text-dark);
-  margin-bottom: 5px;
-}
-
-.profile-info .role,
-.profile-info .gender {
-  color: var(--text-light);
-  font-size: 16px;
-  margin: 0;
-}
-
 /* Section Styling*/
 .section-title {
   font-size: 24px;
@@ -155,60 +142,6 @@ aside {
   font-weight: bold;
 }
 
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px 40px;
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.info-label {
-  font-size: 14px;
-  font-weight: Light;
-  color: var(--text-light);
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.info-value {
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--text-dark);
-  text-transform: uppercase;
-}
-/* statistic section */
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
-  padding-top: 10px;
-}
-
-.stat-item {
-  border-right: 1px solid var(--border-color);
-}
-
-.stat-label {
-  font-size: 14px;
-  color: var(--primary-color);
-  text-transform: uppercase;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.stat-value {
-  font-size: 40px;
-  color: var(--text-dark);
-  font-weight: bold;
-  display: block;
-}
-
 .id {
   font-weight: bold;
 }
@@ -216,6 +149,30 @@ aside {
 .studID, .id {
   display: inline;
 }
+
+h1,p {
+  font-size: 18px;
+  color: black;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.info-row h1 {
+  font-size: 18px;
+  font-weight: bold;
+  width: 150px; /* controls spacing */
+  margin: 0;
+}
+
+.info-row p {
+  font-size: 18px;
+  margin: 0;
+}
+
 
 @media (max-width: 1024px) {
   .sidebar {

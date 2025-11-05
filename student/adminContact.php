@@ -35,8 +35,8 @@
           <a href="search.php" class="nav-item">SEARCH</a>
           <a href="receipts.html" class="nav-item">RECEIPTS</a>
           <a href="cart.html" class="nav-item">CART, DORM & DATES</a>
-          <a href="#" class="nav-item active">ADMIN CONTACT</a>
-          <a href="setting.html" class="nav-item">SETTINGS</a>
+          <a href="" class="nav-item active">ADMIN CONTACT</a>
+          <a href="setting.php" class="nav-item">SETTINGS</a>
           <a href="logout.php" class="nav-item">LOG OUT</a>
         </nav>
 
