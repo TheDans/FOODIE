@@ -25,7 +25,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="setting.css" />
+    <link rel="stylesheet" href="home.css" />
   </head>
 
   <body>
