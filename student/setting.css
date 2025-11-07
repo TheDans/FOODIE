@@ -164,7 +164,7 @@ h1,p {
 .info-row h1 {
   font-size: 18px;
   font-weight: bold;
-  width: 150px; /* controls spacing */
+  width: 120px; /* controls spacing */
   margin: 0;
 }
 
