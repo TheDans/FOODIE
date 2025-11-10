@@ -1,9 +1,21 @@
+<?php
+session_start();
+include("studconnection.php");
+
+// Check if user is logged in
+if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1) {
+    header("Location: /FOODIE/landing-page/index.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="receiptsStyle.css" />
+    <title>FOODIE - Receipts</title>
   </head>
 
   <body>
@@ -23,17 +35,21 @@
         </nav>
       </aside>
 
-      <!--MAIN CONTENT-->
+      <!-- MAIN CONTENT -->
       <main class="main-content">
         <header class="header-title">RECEIPTS</header>
 
-        <!-- personal information section-->
+        <!-- personal information section -->
         <section class="info-section">
           <h3 class="section-title">RECEIPTS THROUGH EMAIL</h3>
-            <div class="info-grid">
-              <span class="order-id">YOUR ORDER ID: QD295</span>
-              <h3>Checkout first to have your receipts sent to your email</h3>
-            </div>
+          <div class="info-grid">
+            <?php
+              // Example dynamic order ID (you can replace with actual query later)
+              $order_id = "QD295";
+
+              echo "<span class='order-id'>YOUR ORDER ID: $order_id</span>";
+              echo "<h3>Checkout first to have your receipts sent to your email</h3>";
+            ?>
           </div>
         </section>
       </main>

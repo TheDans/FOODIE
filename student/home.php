@@ -26,6 +26,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="home.css" />
+    <title>FOODIE - Home</title>
   </head>
 
   <body>
@@ -37,7 +38,7 @@
         <nav class="nav-menu">
           <a href="" class="nav-item active">HOME</a>
           <a href="search.php" class="nav-item">SEARCH</a>
-          <a href="receipts.html" class="nav-item">RECEIPTS</a>
+          <a href="receipts.php" class="nav-item">RECEIPTS</a>
           <a href="cart.php" class="nav-item">CART, DORM & DATES</a>
           <a href="adminContact.php" class="nav-item">ADMIN CONTACT</a> 
           <a href="setting.php" class="nav-item">SETTINGS</a> 
@@ -53,24 +54,7 @@
         <section class="profile-card-container">
           <div class="profile-card">
             <div class="profile-picture">
-              <form action="uploadProfilePic.php" method="POST" enctype="multipart/form-data">
-                <label for="profilePicInput">
-                  <img 
-                    src="<?php echo !empty($row['profile_pic']) ? $row['profile_pic'] : 'https://placehold.co/100x100/7b002c/ffffff?text=User'; ?>" 
-                    alt="User Profile Picture" 
-                    id="profilePreview"
-                  />
-                </label>
-                <input 
-                  type="file" 
-                  name="profilePic" 
-                  id="profilePicInput" 
-                  accept="image/*" 
-                  style="display:none;"
-                  onchange="document.getElementById('profilePreview').src = window.URL.createObjectURL(this.files[0])"
-                />
-              </form>
-              <button type="submit" id="submit" name="submit">SAVE CHANGE</button>
+               <img src="https://placehold.co/100x100/7b002c/ffffff?text=User"/>
             </div>
             <div class="profile-info">
               <h2>

@@ -14,7 +14,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title>Cart, Dorm & Dates</title>
+  <title>FOODIE - Cart, Dorm & Dates</title>
   <link rel="stylesheet" href="cart.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -31,8 +31,8 @@
       <nav class="nav-menu">
         <a href="home.php" class="nav-item">HOME</a>
         <a href="search.php" class="nav-item">SEARCH</a>
-        <a href="receipts.html" class="nav-item">RECEIPTS</a>
-        <a href="cart.php" class="nav-item active">CART, DORM & DATES</a>
+        <a href="receipts.php" class="nav-item">RECEIPTS</a>
+        <a href="" class="nav-item active">CART, DORM & DATES</a>
         <a href="adminContact.php" class="nav-item">ADMIN CONTACT</a>
         <a href="setting.php" class="nav-item">SETTINGS</a>
         <a href="logout.php" class="nav-item">LOG OUT</a>

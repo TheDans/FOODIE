@@ -37,7 +37,7 @@
         <nav class="nav-menu">
           <a href="home.php" class="nav-item">HOME</a>
           <a href="search.php" class="nav-item">SEARCH</a>
-          <a href="receipts.html" class="nav-item">RECEIPTS</a>
+          <a href="receipts.php" class="nav-item">RECEIPTS</a>
           <a href="cart.php" class="nav-item">CART, DORM & DATES</a>
           <a href="adminContact.php" class="nav-item">ADMIN CONTACT</a>
           <a href="" class="nav-item active">SETTINGS</a>
@@ -53,26 +53,7 @@
         <section class="profile-card-container">
           <div class="profile-card">
             <div class="profile-picture">
-              
-              <!-- PROFILE PICTURE -->
-              <form action="uploadProfilePic.php" method="POST" enctype="multipart/form-data">
-                <label for="profilePicInput">
-                  <img 
-                    src="<?php echo !empty($row['profile_pic']) ? $row['profile_pic'] : 'https://placehold.co/100x100/7b002c/ffffff?text=User'; ?>" 
-                    alt="User Profile Picture" 
-                    id="profilePreview"
-                  />
-                </label>
-                <input 
-                  type="file" 
-                  name="profilePic" 
-                  id="profilePicInput" 
-                  accept="image/*" 
-                  style="display:none;"
-                  onchange="document.getElementById('profilePreview').src = window.URL.createObjectURL(this.files[0])"
-                />
-              </form>
-              <button type="submit" class="save-btn" name="submit">SAVE CHANGE</button>
+               <img src="https://placehold.co/100x100/7b002c/ffffff?text=User"/>
             </div>
 
             <div class="profile-info">
