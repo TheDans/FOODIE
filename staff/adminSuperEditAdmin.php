@@ -7,7 +7,13 @@
       header("Location: /FOODIE/landing-page/index.html");
       exit();
   }
+  
+  
 ?>
+
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +52,7 @@
         <header class="header-title">ADMIN CONTACT</header>
 
         <?php
-          $sql = "SELECT * FROM admins";
+          $sql = $sql = "SELECT * FROM admins WHERE is_active = 1";;
           $result = mysqli_query($conn, $sql);
 
           if(mysqli_num_rows($result) > 0)
@@ -99,6 +105,12 @@
 
                   <a href="/FOODIE/staff/adminSuperEditAdmin2.php?adminID='.$adminID.'">
                     <img src="/FOODIE/images/edit_icon.png" alt="Edit" class="icon-btn" />
+                  </a>
+                  <a onclick="return confirm("Deactivate this admin?");"
+                    href="/FOODIE/staff/adminDeleteAdmin.php?adminID='.$adminID.'">
+                    <img src="/FOODIE/images/trash_icon.png"
+                        alt="Delete Icon"
+                        class="icon-btn"/>
                   </a>
                 </section> ';
             }
