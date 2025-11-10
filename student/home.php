@@ -53,10 +53,24 @@
         <section class="profile-card-container">
           <div class="profile-card">
             <div class="profile-picture">
-              <img
-                src="https://placehold.co/100x100/7b002c/ffffff?text=User"
-                alt="User Profile Picture"
-              />
+              <form action="uploadProfilePic.php" method="POST" enctype="multipart/form-data">
+                <label for="profilePicInput">
+                  <img 
+                    src="<?php echo !empty($row['profile_pic']) ? $row['profile_pic'] : 'https://placehold.co/100x100/7b002c/ffffff?text=User'; ?>" 
+                    alt="User Profile Picture" 
+                    id="profilePreview"
+                  />
+                </label>
+                <input 
+                  type="file" 
+                  name="profilePic" 
+                  id="profilePicInput" 
+                  accept="image/*" 
+                  style="display:none;"
+                  onchange="document.getElementById('profilePreview').src = window.URL.createObjectURL(this.files[0])"
+                />
+              </form>
+              <button type="submit" id="submit" name="submit">SAVE CHANGE</button>
             </div>
             <div class="profile-info">
               <h2>
