@@ -57,7 +57,13 @@
             </div>
 
             <div class="profile-info">
-              <h1 class="title">Account Info</h1>
+              <div class="title-with-icon">
+                <h1 class="title">Account Info</h1>
+                <a href="/FOODIE/student/settingEdit.php?studentID=<?php echo $studID; ?>">
+                  <img src="/FOODIE/images/edit_icon.png" alt="Edit" class="icon-btn" />
+                </a>
+              </div>
+
               
               <!-- STUDENT ID -->
               <div class="non-editable">
@@ -75,14 +81,12 @@
               <div class="info-row">
                 <h1>Email:</h1>
                 <p><?php echo $studEmail; ?></p>
-                <button id="editEmail">Edit</button>
               </div>
 
               <!-- PHONE NO -->
               <div class="info-row">
                 <h1>Phone No:</h1>
                 <p><?php echo $studPhoneNo; ?></p>
-                <button id="editPhone">Edit</button>
               </div>
 
               <!-- MATRIC NO -->
@@ -95,7 +99,6 @@
               <div class="info-row">
                 <h1>Password:</h1>
                 <p>********</p>
-                <button id="editPassword">Edit</button>
               </div>
 
               <p class="role">Student</p>

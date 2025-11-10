@@ -1,12 +1,27 @@
 <?php
-session_start();
-include("studconnection.php");
+  session_start();
+  include("studconnection.php");
 
-// Check if user is logged in
-if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1) {
-    header("Location: /FOODIE/landing-page/index.html");
+  if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
+  {
+    header("Location:/FOODIE/landing-page/index.html");
     exit();
-}
+  }
+
+  $studID = $_SESSION['studID'];
+
+  $sql = "SELECT orderID FROM orders WHERE studID='$studID' ORDER BY orderID DESC LIMIT 1";
+  $result = mysqli_query($conn, $sql);
+
+  if ($result && mysqli_num_rows($result) > 0)
+  {
+    $row = mysqli_fetch_assoc($result);
+    $orderID = $row['orderID'];
+  }
+  else
+  {
+    $orderID = "No order found";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -39,17 +54,11 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1) {
       <main class="main-content">
         <header class="header-title">RECEIPTS</header>
 
-        <!-- personal information section -->
         <section class="info-section">
           <h3 class="section-title">RECEIPTS THROUGH EMAIL</h3>
           <div class="info-grid">
-            <?php
-              // Example dynamic order ID (you can replace with actual query later)
-              $order_id = "QD295";
-
-              echo "<span class='order-id'>YOUR ORDER ID: $order_id</span>";
-              echo "<h3>Checkout first to have your receipts sent to your email</h3>";
-            ?>
+            <span class="order-id">YOUR ORDER ID: <?php echo $orderID; ?></span>
+            <h3>Checkout first to have your receipts sent to your email</h3>
           </div>
         </section>
       </main>
