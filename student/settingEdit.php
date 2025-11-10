@@ -7,34 +7,36 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
     header("Location: /FOODIE/landing-page/index.html");
 }
 
-$studentId = $_GET["studentID"];
-
-$data = mysqli_query($conn, "SELECT * FROM students WHERE studentID='$studentId'"); // select query
-$row = mysqli_fetch_assoc($data);
+$studID = $_SESSION['studID'];
+$sql = "SELECT * FROM students WHERE studID='$studID'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
 
 if(isset($_POST["edit"])) {
-    $studentName = $_POST["studentName"];
-    $studentGender = $_POST["studentGender"];
-    $studentEmail = $_POST["studentEmail"];
-    $studentPhone = $_POST["studentPhoneNo"];
-    $username = $_POST["username"];
+    $studentName = $_POST["studName"];
+    $studentGender = $_POST["studGender"];
+    $studentPhone = $_POST["studPhoneNo"];
+    $MatricNo = $_POST["MatricNo"];
+    $IcNumber = $_POST["studIcNo"];
+    $studentEmail = $_POST["studEmail"];
+    $studentPassword = $_POST["password"];
 
     $update = "UPDATE students 
-               SET studentName='$studentName', studentGender='$studentGender', 
-                   studentEmail='$studentEmail', studentPhoneNo='$studentPhone', username='$username' 
-               WHERE studentID='$studentId'";
+               SET studentName='$studName', studentGender='$studGender', studentPhone='$studPhoneNo', 
+                   MatricNo='$MatricNo', IcNumber='$studIcNo', studentEmail='$studEmail', studentPassword='$password'
+               WHERE studID='$studID'";
     
     $run = mysqli_query($conn, $update);
 
     if($run) {
         echo "<script language='javascript'>
         alert('Details of student have been updated successfully.');
-        window.location='/FOODIE/staff/studentSuperEditStudent.php';
+        window.location='/FOODIE/student/setting.php';
         </script>";
     } else {
         echo "<script language='javascript'>
         alert('Error! Failed to update details of student.');
-        window.location='/FOODIE/staff/studentSuperChoose.html';
+        window.location='/FOODIE/student/settingEdit.php';
         </script>";
     }
 }
@@ -49,7 +51,7 @@ if(isset($_POST['Cancel'])) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="studentSuper.css" />
+    <link rel="stylesheet" href="settingEdit.css" />
   </head>
 
   <body>
@@ -76,39 +78,39 @@ if(isset($_POST['Cancel'])) {
           <form method="POST">
             <div class="form-group">
               <label for="detailID">Student ID: </label>
-              <span><?php echo $row['studentID'] ?></span>
-              <input type="hidden" id="studentID" name="studentID" value="<?php echo $row['studentID'] ?>"/>
+              <span><?php echo $row['studID'] ?></span>
+              <input type="hidden" id="studentID" name="studentID" value="<?php echo $row['studID'] ?>"/>
             </div>
 
             <div class="form-group">
               <label for="studentName">Student Name</label>
-              <input type="text" id="studentName" name="studentName" value="<?php echo $row['studentName'] ?>" placeholder="<?php echo $row['studentName'] ?>" maxlength="45" style="font-size:17px;"/>
+              <input type="text" id="studentName" name="studentName" value="<?php echo $row['studName'] ?>" placeholder="<?php echo $row['studName'] ?>" maxlength="45" style="font-size:17px;"/>
             </div>
 
             <div class="form-group">
               <label for="studentGender">Gender</label>
-              <input type="text" id="studentGender" name="studentGender" value="<?php echo $row['studentGender'] ?>" placeholder="<?php echo $row['studentGender'] ?>" maxlength="45" style="font-size:17px;"/>
+              <input type="text" id="studentGender" name="studentGender" value="<?php echo $row['studGender'] ?>" placeholder="<?php echo $row['studGender'] ?>" maxlength="45" style="font-size:17px;"/>
             </div>
 
             <div class="form-group">
               <label for="studentPhoneNo">Phone No</label>
-              <input type="text" id="studentPhoneNo" name="studentPhoneNo" value="<?php echo $row['studentPhoneNo'] ?>" placeholder="<?php echo $row['studentPhoneNo'] ?>" maxlength="45" style="font-size:17px;"/>
+              <input type="text" id="studentPhoneNo" name="studentPhoneNo" value="<?php echo $row['studPhoneNo'] ?>" placeholder="<?php echo $row['studPhoneNo'] ?>" maxlength="45" style="font-size:17px;"/>
             </div>
             
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" id="username" name="username" value="<?php echo $row['username'] ?>" placeholder="<?php echo $row['username'] ?>" maxlength="45" style="font-size:17px;"/>
+              <label for="Matric No">Matric No</label>
+              <input type="text" id="Matric No" name="Matric No" value="<?php echo $row['MatricNo'] ?>" placeholder="<?php echo $row['MatricNo'] ?>" maxlength="45" style="font-size:17px;"/>
             </div>
 
             <div class="form-group">
               <label for="studentIcNo">Student IC: </label>
-              <span><?php echo $row['studentIcNo'] ?></span>
-              <input type="hidden" id="studentIcNo" name="studentIcNo" value="<?php echo $row['studentIcNo'] ?>"/>
+              <span><?php echo $row['studIcNo'] ?></span>
+              <input type="hidden" id="studentIcNo" name="studentIcNo" value="<?php echo $row['studIcNo'] ?>"/>
             </div>
 
             <div class="form-group">
               <label for="studentEmail">Student Email</label>
-              <input type="text" id="studentEmail" name="studentEmail" value="<?php echo $row['studentEmail'] ?>" placeholder="<?php echo $row['studentEmail'] ?>" maxlength="45" style="font-size:17px;"/>
+              <input type="text" id="studentEmail" name="studentEmail" value="<?php echo $row['studEmail'] ?>" placeholder="<?php echo $row['studEmail'] ?>" maxlength="45" style="font-size:17px;"/>
             </div>
 
             <button type="submit" id="edit" name="edit" title="Button to update details of student" class="btn">
@@ -116,7 +118,7 @@ if(isset($_POST['Cancel'])) {
               <img src="/FOODIE/images/check.png" alt="Select" width="18" height="18" />
             </button>
 
-            <a class="btn-x" href="/FOODIE/staff/studentSuperChoose.html">
+            <a class="btn-x" href="/FOODIE/student/setting.php">
               Cancel
               <img src="/FOODIE/images/x_icon.png" alt="Select" width="14" height="14" />
             </a>
