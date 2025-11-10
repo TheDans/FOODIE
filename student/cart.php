@@ -104,66 +104,49 @@
       </div>
         <form action="dateDorm.php" method="post">
       <!-- DATE & DORM INFO -->
-      <div class="info-grid">
-        <div class="info-section">
-          <h3 class="section-title">DATE INFORMATION</h3>
-          <p>Date Order:</p>
-          <input id = "do" type="text" value="<?php 
-								date_default_timezone_set("Asia/Kuala_Lumpur");
-								echo date("d/m/Y"); 
-							?>" readonly  ><br><br>
+      <div class="info-row">
+  <div class="info-section"> <!-- DATE INFORMATION -->
+    <h3 class="section-title">DATE INFORMATION</h3>
+    <p>Date Order:</p>
+    <input id="do" type="text" value="<?php 
+      date_default_timezone_set('Asia/Kuala_Lumpur');
+      echo date('d/m/Y'); 
+    ?>" readonly>
 
-          <p>Date of Delivery:</p>
-          <?php
-							date_default_timezone_set("Asia/Kuala_Lumpur");
-							$todayDate = date("Y-m-d"); //2020-11-03
-						?>
-          <input type="date" name="deliveryDate" id="deliveryDate" value="<?php echo $todayDate;?>">
-        </div>
+    <p>Date of Delivery:</p>
+    <?php
+      $todayDate = date('Y-m-d');
+    ?>
+    <input type="date" name="deliveryDate" id="deliveryDate" value="<?php echo $todayDate;?>">
+  </div>
 
-        <div class="info-section">
-          <h3 class="section-title">DORM INFORMATION</h3>
-          <p>Dorm Level:</p>
-          <input type="number" placeholder="Enter level" name="dormLevel" id="dormLevel" min = "0" max = "10"><br><br>
+  <div class="info-section"> <!-- DORM INFORMATION -->
+    <h3 class="section-title">DORM INFORMATION</h3>
+    <p>Dorm Level:</p>
+    <input type="number" placeholder="Enter level" name="dormLevel" id="dormLevel" min="0" max="10">
 
-          <p>Dorm Number:</p>
-          <input type="number" name="dormNo" id="dormNo" min="1"  max = "326" placeholder="Enter room number"><br><br>
+    <p>Dorm Number:</p>
+    <input type="number" name="dormNo" id="dormNo" min="1" max="326" placeholder="Enter room number">
 
-          <p>Building:</p>
-              <select name="buildingID" id="buildingID" style="font-size:17px;">
-                <option value="">-- Select Building --</option>
-								<?php 
-									$sqlbuildings = "SELECT * FROM buildings ORDER BY buildingName ASC";
-									$qrybuildings = mysqli_query($conn, $sqlbuildings);
-									$rowbuildings= mysqli_num_rows($qrybuildings);
+    <p>Building:</p>
+    <select name="buildingID" id="buildingID" style="font-size:17px;">
+      <option value="">-- Select Building --</option>
+      <?php 
+        $sqlbuildings = "SELECT * FROM buildings ORDER BY buildingName ASC";
+        $qrybuildings = mysqli_query($conn, $sqlbuildings);
+        while($b = mysqli_fetch_assoc($qrybuildings)) {
+          echo "<option value='".$b['buildingID']."'>".$b['buildingName']."</option>";
+        }
+      ?>
+    </select>
+  </div>
 
-									if($rowbuildings > 0)
-									{
-										while($dbuildings = mysqli_fetch_assoc($qrybuildings))
-										{
-											if($buildingID == $dbuildings['buildingID'])
-												echo "<option value='".$dbuildings['buildingID']."'selected>".$dbuildings['buildingName']."</option>";
-											else
-												echo "<option value='".$dbuildings['buildingID']."'>".$dbuildings['buildingName']."</option>";
-										}
-									}
-								?>
-							</select>				
-        </div>
-      </div>
+  <div class="button-column">
+    <button type='submit' id='checkout' name='checkout' class="checkout-btn">Checkout Order ✓</button>
+    <button type='submit' id='cancel' name='cancel' class="cancel-btn" onclick="return confirm('Cancel this order?');">Cancel Order ✕</button>
+  </div>
+</div>
 
-      <!-- buttons -->
-
-      <div class="button-row">
-        <?php
-				if($_SESSION['logoutPermission'] == 0) //No
-				{?>
-        <button type='submit' id='checkout' name='checkout' title='Button to checkout order' class="checkout-btn">Checkout Order</button>
-        <button type='submit' class="cancel-btn" id='cancel' name='cancel' onclick="return confirm('Cancel this order?');" title='Button to cancel order'>Cancel Order</button>
-      <?php
-				}
-			?>
-      </div>
     </form>
     </main>
   </div>
