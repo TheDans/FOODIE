@@ -21,7 +21,6 @@ a {
 }
 
 body {
-  background-color: #ddd;
   min-height: 100vh;
 }
 
@@ -133,28 +132,6 @@ aside {
   background-color: #eee;
   margin-bottom: 180px;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.save-btn {
-  padding: 5px 10px;
-  border-radius: 50px;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.save-btn {
-  background-color: #2ecc71;
-}
-
-.save-btn:hover {
-  background-color: #27ae60;
-  transform: scale(1.05);
 }
 
 

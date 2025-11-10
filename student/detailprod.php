@@ -32,6 +32,7 @@ while($i == 1) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="detailprod.css " />
+    <title>FOODIE - Search</title>
   </head>
 
   <body>
@@ -43,7 +44,7 @@ while($i == 1) {
         <nav class="nav-menu">
           <a href="home.php" class="nav-item">HOME</a>
           <a href="" class="nav-item active">SEARCH</a>
-          <a href="receipts.html" class="nav-item">RECEIPTS</a>
+          <a href="receipts.php" class="nav-item">RECEIPTS</a>
           <a href="cart.php" class="nav-item">CART, DORM & DATES</a>
           <a href="adminContact.php" class="nav-item">ADMIN CONTACT</a>
           <a href="setting.php" class="nav-item">SETTINGS</a>

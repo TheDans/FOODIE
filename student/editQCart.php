@@ -49,6 +49,7 @@ if(isset($_POST['Cancel']))
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="editQCart.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>FOODIE - Search</title>
   </head>
 
   <body>
@@ -60,7 +61,7 @@ if(isset($_POST['Cancel']))
         <nav class="nav-menu">
           <a href="home.php" class="nav-item">HOME</a>
           <a href="" class="nav-item active">SEARCH</a>
-          <a href="receipts.html" class="nav-item">RECEIPTS</a>
+          <a href="receipts.php" class="nav-item">RECEIPTS</a>
           <a href="cart.php" class="nav-item">CART, DORM & DATES</a>
           <a href="adminContact.php" class="nav-item">ADMIN CONTACT</a>
           <a href="setting.php" class="nav-item">SETTINGS</a>

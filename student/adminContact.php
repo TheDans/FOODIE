@@ -16,7 +16,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="adminContactStyle.css" />
-    <title>Admin Contact</title>
+    <title>FOODIE - Admin Contact</title>
   </head>
 
   <body>
@@ -33,7 +33,7 @@
         <nav class="nav-menu">
           <a href="home.php" class="nav-item">HOME</a>
           <a href="search.php" class="nav-item">SEARCH</a>
-          <a href="receipts.html" class="nav-item">RECEIPTS</a>
+          <a href="receipts.php" class="nav-item">RECEIPTS</a>
           <a href="cart.php" class="nav-item">CART, DORM & DATES</a>
           <a href="" class="nav-item active">ADMIN CONTACT</a>
           <a href="setting.php" class="nav-item">SETTINGS</a>
