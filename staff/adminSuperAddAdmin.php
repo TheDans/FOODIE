@@ -16,6 +16,7 @@ if(isset($_POST["add"])) {
     $adminPhoneNo = $_POST["adminPhoneNo"];
     $username     = $_POST["username"];
     $adminIcNo    = $_POST["adminIcNo"];
+    $password = $_POST["password"];
 
     // Get the last adminID
     $result = mysqli_query($conn, "SELECT adminID FROM admins ORDER BY adminID DESC LIMIT 1");
@@ -24,12 +25,13 @@ if(isset($_POST["add"])) {
 
     // Generate next adminID
     $number = (int)substr($lastID, 3);   // get numeric part
-    $number++;                             // increment
+    $number++;    // increment
     $newAdminID = "ADM" . str_pad($number, 2, "0", STR_PAD_LEFT); // e.g. ADM05
 
     // insert query with new adminID
-    $insert = "INSERT INTO admins (adminID, adminName, adminGender, adminEmail, adminPhoneNo, username, adminIcNo)
-               VALUES ('$newAdminID', '$adminName', '$adminGender', '$adminEmail', '$adminPhoneNo', '$username', '$adminIcNo')";
+    $insert = "INSERT INTO admins (adminID, adminName, adminGender, adminEmail, adminPhoneNo, username, adminIcNo, password)
+              VALUES ('$newAdminID', '$adminName', '$adminGender', '$adminEmail', '$adminPhoneNo', '$username', '$adminIcNo', '$password')";
+
 
     $run = mysqli_query($conn, $insert);
 
@@ -98,7 +100,12 @@ if(isset($_POST["add"])) {
 
           <div class="form-group">
             <label for="adminEmail">Admin Email</label>
-            <input type="text" id="adminEmail" name="adminEmail" maxlength="45" required style="font-size:17px;"/>
+            <input type="email" id="adminEmail" name="adminEmail" maxlength="45" required style="font-size:17px;"/>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Admin Password</label>
+            <input type="text" id="password" name="password" maxlength="45" required style="font-size:17px;"/>
           </div>
 
           <button type="submit" id="add" name="add" title="Button to add new admin" class="btn">
