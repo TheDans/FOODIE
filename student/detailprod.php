@@ -74,9 +74,14 @@ while($i == 1) {
             <input type="hidden" name="studID" value="<?php echo $_SESSION['studID']; ?>">
             <input type="hidden" name="prodID" value="<?php echo $data['prodID']; ?>">
             <input type="hidden" name="prodName" value="<?php echo $data['prodName']; ?>">
-
+            <h3 class="section-title">YOUR ORDER ID: <?php echo $_SESSION['orderID']; ?></h3>
             <section class="info-section"> 
-              <h3 class="section-title">YOUR ORDER ID: <?php echo $_SESSION['orderID']; ?></h3>
+              
+
+              <div class="picture-box">
+                  <img src="/FOODIE/images/<?php echo $data['images']?>" class="foodpic">
+              </div>
+             <div class="info-box">
               <div class="info-grid">
                 <div class="info-item">
                     <span class="info-label">Product ID</span>
@@ -102,6 +107,8 @@ while($i == 1) {
                     <span class="info-value"><?php echo $data['prodDesc']; ?></span>
                 </div>
               </div>
+            </div> 
+              
             </section>
             
             <div class="buttton-grid">
