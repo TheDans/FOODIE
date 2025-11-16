@@ -20,7 +20,7 @@
     $MatricNo = $_POST["MatricNo"];
     $studIcNo = $_POST["studIcNo"];
     $studEmail = $_POST["studEmail"];
-    $password = $_POST["password"] ?? $row["password"]; // keeps old password if not edited
+    $password = !empty($_POST["password"]) ? $_POST["password"] : $row["password"]; // keeps old password if not edited
 
     $update = "UPDATE students 
                SET studName='$studName', studGender='$studGender', studPhoneNo='$studPhoneNo',
