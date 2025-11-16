@@ -328,12 +328,22 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
                         size: 14
                       }
                     }
-                  }
+                  },
+                  title: {
+                        display: true,
+                        text: 'Monthly Sales Overview',
+                        color: '#333',
+                        font: { size: 18, family: 'Circular Std Book' }
+                      }
                 },
                 scales: {
                   y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                     title: { display: true, text: 'Sales (RM)' }
                   }
+                   ,x: { 
+                        title: { display: true, text: 'Weekly' }
+                      }
                 }
               }
 
