@@ -141,27 +141,27 @@
 
       <form id="login" name="login" method="post" action="plogin.php">
         <label for="MatricNo">Matric ID</label>
-        <input
-          type="text"
-          name="MatricNo"
-          id="MatricNo"
+        <input type="text" name="MatricNo" id="MatricNo"
           placeholder="Enter here"
-          maxlength="10"
+          maxlength="20"
+          pattern="[A-Za-z0-9]{3,20}"
+          title="Matric ID must be 3–20 characters, letters and numbers only, no spaces"
           required
         />
 
         <label for="password">Password</label>
-        <!-- Note: Changed placeholder to "Enter here" to match the image -->
-        <input
-          type="password"
-          name="password"
-          id="password"
+        <input 
+          type="password" name="password" id="password"
           placeholder="Enter here"
-          maxlength="100"
-          required
+          maxlength="30"
+          pattern="(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]{8,30}"
+          title="Password must be 8–30 characters, at least 1 uppercase, 1 number, no spaces"
+          required 
         />
+        
         <input type="submit" class="btn" name="btnlogin" value="LOGIN" />
       </form>
+
       <a class="register" href="register.html">No account?Create now</a>
     </div>
   </body>

@@ -73,34 +73,63 @@
             
             <!-- Row 1: Email (Full Width) -->
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" placeholder="Enter here" required/>
-            </div>
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" 
+					placeholder="Enter your email" 
+					maxlength="255" 
+					required
+				/>
+			</div>
 
             <!-- Row 2: Name (Full Width) -->
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Enter here" required/>
-            </div>
+            <!-- Name -->
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" 
+					placeholder="Enter your full name" 
+					maxlength="255" 
+					pattern="[A-Za-z\s]+" 
+					title="Name can contain letters and spaces only" 
+					required
+				/>
+			</div>
             
             <!-- Row 3: IC Number / Matric ID (Two Columns) -->
             <div class="form-row">
                 <div class="form-group">
-                    <label for="icNo">IC Number</label>
-                    <input type="text" name="icNo" id="icNo" placeholder="Enter here" maxlength="12" required/>
-                </div>
-                <div class="form-group">
-                    <label for="matricId">Matric ID</label>
-                    <input type="text" name="matricId" id="matricId" placeholder="Enter here" maxlength="10" required/>
-                </div>
+					<label for="icNo">IC Number</label>
+					<input type="text" name="icNo" id="icNo" 
+						placeholder="e.g. 990101123456" 
+						maxlength="12" pattern="[0-9]{12}" 
+						title="Enter exactly 12 digits, e.g., 990101123456" 
+						required
+					/>
+				</div>
+                
+				<div class="form-group">
+					<label for="matricId">Matric ID</label>
+					<input type="text" name="matricId" id="matricId" 
+						placeholder="e.g. A123" 
+						minlength="3" maxlength="20" 
+						pattern="[A-Za-z0-9]{3,20}" 
+						title="Enter 3-20 characters, letters and numbers only, e.g., A123" 
+						required
+					/>
+				</div>
+
             </div>
             
             <!-- Row 4: Phone No / Gender (Two Columns) -->
             <div class="form-row">
                 <div class="form-group">
-                    <label for="phoneNo">Phone No</label>
-                    <input type="text" name="phoneNo" id="phoneNo" placeholder="Enter here" required/>
-                </div>
+					<label for="phoneNo">Phone No</label>
+					<input type="text" name="phoneNo" id="phoneNo" 
+						placeholder="e.g. 012345678" 
+						maxlength="11" pattern="[0-9]{9,11}" 
+						title="Enter 9–11 digits, e.g., 012345678 or 01123456789" 
+						required 
+					/>
+				</div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
                     <select name="gender" id="gender" required>
@@ -113,12 +142,20 @@
 
 			 <div class="form-group">
 				<label for="password">Password</label>
-				<input type="password" name="password" id="password" placeholder="Enter password" required/>
+				<input type="password" name="password" id="password" 
+					placeholder="Enter password" 
+					minlength="8" maxlength="30" 
+					pattern="(?=.*[A-Z])(?=.*[0-9]).{8,30}" 
+					title="Password must be 8-30 characters, contain at least 1 uppercase letter and 1 number" 
+					required />
 			</div>
 
 			<div class="form-group">
 				<label for="confirmPassword">Confirm Password</label>
-				<input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-enter password" required/>
+				<input type="password" name="confirmPassword" id="confirmPassword" 
+					placeholder="Re-enter password" 
+					minlength="8" maxlength="30" 
+					required />
 			</div>
             
             <input type="submit" class="btn" name="btnRegister" value="REGISTER"/>
