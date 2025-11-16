@@ -56,7 +56,7 @@ if(isset($_POST['checkout'])) // when click on Update button
 				if($studGender == "F") //female stud who live in Mat Kilau will assign to female admin (ADM03) (Nurhayati)
 				{
 					$update = "UPDATE orders SET dormLevel='$dormLevel', dormNo='$dormNo', deliveryDate='$deliveryDate', orderDate='$todayDate', 
-					buildingID='BD001', adminID='ADM03' WHERE orderID='$orderID'";
+					buildingID='BD001', adminID='ADM04' WHERE orderID='$orderID'";
 					if(mysqli_query($conn,$update))
 					{
 						$_SESSION['logoutPermission'] = 1; //yes
@@ -97,7 +97,7 @@ if(isset($_POST['checkout'])) // when click on Update button
 				else //female stud who live in Tun Teja 1 will assign to female admin (ADM01) (Ainatul)
 				{
 					$update = "UPDATE orders SET dormLevel='$dormLevel', dormNo='$dormNo', deliveryDate='$deliveryDate', orderDate='$todayDate', 
-					buildingID='BD002', adminID='ADM01' WHERE orderID='$orderID'";
+					buildingID='BD002', adminID='ADM04' WHERE orderID='$orderID'";
 					if(mysqli_query($conn,$update))
 					{
 						$_SESSION['logoutPermission'] = 1;
@@ -122,7 +122,7 @@ if(isset($_POST['checkout'])) // when click on Update button
 				else //female stud who live in Tun Teja 1 will assign to female admin (ADM02) (Erni)
 				{
 					$update = "UPDATE orders SET dormLevel='$dormLevel', dormNo='$dormNo', deliveryDate='$deliveryDate', orderDate='$todayDate', 
-					buildingID='BD003', adminID='ADM02' WHERE orderID='$orderID'";
+					buildingID='BD003', adminID='ADM04' WHERE orderID='$orderID'";
 					if(mysqli_query($conn,$update))
 					{
 						$_SESSION['logoutPermission'] = 1;

@@ -28,7 +28,7 @@ $mail->isSMTP();                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers 
 $mail->SMTPAuth = true;               // Enable SMTP authentication 
 $mail->Username = 'foodienull66@gmail.com';   // SMTP username //SILA UBAH DI SINI
-$mail->Password = 'prpqhuwqjeuykjxb';   // SMTP password //SILA UBAH DI SINI
+$mail->Password = 'yuuigwycvctrfwbn';   // SMTP password //SILA UBAH DI SINI
 $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
 $mail->Port = 587;                    // TCP port to connect to 
 
@@ -69,8 +69,8 @@ $sql = "SELECT od.quantity, p.prodName, p.price, t.typeName FROM orderdetails od
 $qry2 = mysqli_query($conn, $sql);
 
 // --- sanitize emails ---
-$to = isset($data['studEmail']) ? trim($data['studEmail']) : '';
-$toAdd = isset($data['adminEmail']) ? trim($data['adminEmail']) : '';
+$to = $data['studEmail'];
+$toAdd = $data['adminEmail'];
 
 // --- Build receipt HTML using real data ---
 $totalPrice = 0.00;
