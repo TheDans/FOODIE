@@ -43,8 +43,8 @@ if (isset($_POST['btnRegister']))
 
     // Insert into database
     $insert = "INSERT INTO students 
-               (studEmail, studName, studIcNo, MatricNo, studPhoneNo, studGender, password)
-               VALUES ('$email', '$name', '$icNo', '$matricId', '$phoneNo', '$gender', '$password1')";
+               (studEmail, studName, studIcNo, MatricNo, studPhoneNo, studGender, password, user_image)
+               VALUES ('$email', '$name', '$icNo', '$matricId', '$phoneNo', '$gender', '$password1', '$user_image')";
 
     if (mysqli_query($conn, $insert))
     {

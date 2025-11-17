@@ -18,7 +18,7 @@
   $matricNo = $row['MatricNo'];
   $studIcNo = $row['studIcNo'];
   $studEmail = $row['studEmail']; 
-  $images = $row['images'];
+  $user_image = $row['user_image'];
 ?>
           
 <!DOCTYPE html>
@@ -55,7 +55,11 @@
         <section class="profile-card-container">
           <div class="profile-card">
             <div class="profile-picture">
-               <img src="/FOODIE/images/<?php echo $images?>"/>
+               <img 
+                src="/FOODIE/images/studentImages/<?php echo $user_image; ?>" 
+                alt="Profile Picture"
+                onerror="this.src='/FOODIE/images/studentImages/default_student.png';"
+              />
             </div>
             <div class="profile-info">
               <h2>

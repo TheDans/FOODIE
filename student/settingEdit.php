@@ -1,60 +1,101 @@
 <?php
-session_start();
-include("studconnection.php");
+  session_start();
+  include("studconnection.php");
 
-if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1) {
-    header("Location: /FOODIE/landing-page/index.html");
-}
+  if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1) {
+      header("Location: /FOODIE/landing-page/index.html");
+  }
 
-$studID = $_SESSION['studID'];
-$sql = "SELECT * FROM students WHERE studID='$studID'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
+  $studID = $_SESSION['studID'];
+  $sql = "SELECT * FROM students WHERE studID='$studID'";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
 
-if(isset($_POST["edit"])) {
+  if(isset($_POST["edit"]))
+  {
     $studName = $_POST["studName"];
     $studGender = $_POST["studGender"];
     $studPhoneNo = $_POST["studPhoneNo"];
     $MatricNo = $_POST["MatricNo"];
     $studIcNo = $_POST["studIcNo"];
     $studEmail = $_POST["studEmail"];
-    $password = !empty($_POST["password"]) ? $_POST["password"] : $row["password"]; // keep old password if blank
+    $password = !empty($_POST["password"]) ? $_POST["password"] : $row["password"]; // keep old password
 
-    $user_image = $row["user_image"]; // default to existing image
+    $user_image = $row["user_image"]; // current image filename
 
-    if(isset($_FILES["user_image"]) && $_FILES["user_image"]["error"] === 0){
-        $targetDir = "uploads/";
-        $targetFile = $targetDir . basename($_FILES["user_image"]["name"]);
+    // Check if a new image is uploaded
+    if(!empty($_FILES['user_image']['name']))
+    {
+      $fileName = $_FILES['user_image']['name'];
+      $fileTmp = $_FILES['user_image']['tmp_name'];
+      $fileSize = $_FILES['user_image']['size'];
 
-        if(move_uploaded_file($_FILES["user_image"]["tmp_name"], $targetFile)){
-            $user_image = basename($_FILES["user_image"]["name"]);
-        }
+      $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+      $allowed = ['jpg','jpeg','png','gif'];
+
+      // Validate extension
+      if(!in_array($ext, $allowed))
+      {
+        echo "<script>alert('Invalid file type! Only JPG, PNG, GIF allowed.');history.back();</script>";
+        exit;
+      }
+
+      // Validate size (max 2MB)
+      if($fileSize > 2 * 1024 * 1024)
+      {
+        echo "<script>alert('File too large! Maximum size: 2MB');history.back();</script>";
+        exit;
+      }
+
+      // New filename
+      $newName = "student_" . time() . "." . $ext;
+
+      // Correct server path to save the file
+      $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "/FOODIE/images/studentImages/";
+      $uploadPath = $uploadDir . $newName;
+
+      // Move uploaded file
+      if(move_uploaded_file($fileTmp, $uploadPath))
+      {
+        $user_image = $newName; // update filename to store in DB
+      }
+          
+      else
+      {
+        echo "<script>alert('Failed to upload image.');history.back();</script>";
+        exit;
+      }
     }
 
+    // Update the student record
     $update = "UPDATE students 
                SET studName='$studName', studGender='$studGender', studPhoneNo='$studPhoneNo',
-                   MatricNo='$MatricNo', studIcNo='$studIcNo', studEmail='$studEmail', password='$password', 
-                   user_image='$user_image'
+                  MatricNo='$MatricNo', studIcNo='$studIcNo', studEmail='$studEmail', password='$password', 
+                 user_image='$user_image'
                WHERE studID='$studID'";
 
     $run = mysqli_query($conn, $update);
 
-    if($run) {
-        echo "<script>
-                alert('Details of student have been updated successfully.');
-                window.location='/FOODIE/student/setting.php';
-              </script>";
-    } else {
-        echo "<script>
-                alert('Error! Failed to update details of student.');
-                window.location='/FOODIE/student/settingEdit.php';
-              </script>";
+    if($run)
+    {
+      echo "<script>
+              alert('Details of student have been updated successfully.');
+              window.location='/FOODIE/student/setting.php';
+            </script>";
     }
-}
+    else
+    {
+      echo "<script>
+              alert('Error! Failed to update details of student.');
+              window.location='/FOODIE/student/settingEdit.php';
+            </script>";
+    }
+  }
 
-if(isset($_POST['Cancel'])) {
-    echo "<script>history.back();</script>";
-}
+  if(isset($_POST['Cancel']))
+  {
+      echo "<script>history.back();</script>";
+  }
 ?>
 
   <!DOCTYPE html>
@@ -98,10 +139,14 @@ if(isset($_POST['Cancel'])) {
               <div class="form-group">
                 <label for="studentName">Profile Pic: </label>
                 <div class="profile-pic-container">
-                  <div class="profile-picture">
-                    <img src="https://placehold.co/100x100/7b002c/ffffff?text=User"/>
+                    <input 
+                      type="file" 
+                      id="user_image" 
+                      name="user_image"
+                      accept=".jpg, .jpeg, .png, .gif"
+                      style="font-size:17px;"
+                    />
                   </div>
-                </div>
               </div>
 
               <!--STUDENT NAME-->
@@ -142,7 +187,7 @@ if(isset($_POST['Cancel'])) {
                 />
               </div>
               
-              <!--MATRIC NO-->
+              <!--MATRIC NUMBER-->
               <div class="form-group">
                 <label for="MatricNo">Matric No</label>
                 <input type="text" id="MatricNo" name="MatricNo"
