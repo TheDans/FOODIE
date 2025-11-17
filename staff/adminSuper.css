@@ -304,6 +304,31 @@ label {
   justify-content: center;
   align-items: center;
 }
+/* Admin Image and Info Wrapper */
+.info-wrapper {
+  display: flex;
+  gap: 20px; /* space between image and info */
+  align-items: flex-start;
+}
+
+.admin-img img {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* On small screens, stack image above info */
+@media (max-width: 768px) {
+  .info-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .admin-img img {
+    margin-bottom: 15px;
+  }
+}
 
 @media (max-width: 1024px) {
   .sidebar {
