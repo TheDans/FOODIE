@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include("adminconnection.php");
 
@@ -16,10 +15,10 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
 
       if(isset($_POST['Update']))
         {
-            $prodName = $_POST['prodName'];
-            $price = $_POST['price'];
-            $prodDesc = $_POST['prodDesc'];
-            $typeID = $_POST['typeID'];
+            $prodName = mysqli_real_escape_string($conn, $_POST['prodName']);
+            $price = mysqli_real_escape_string($conn, $_POST['price']);
+            $prodDesc = mysqli_real_escape_string($conn, $_POST['prodDesc']);
+            $typeID = mysqli_real_escape_string($conn, $_POST['typeID']);
 
             // Folder path to store images
             $targetDir = "../images/";
@@ -28,6 +27,7 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
             if(!empty($_FILES["prodImage"]["name"]))
             {
                 $fileName = basename($_FILES["prodImage"]["name"]);
+                $fileName = mysqli_real_escape_string($conn, $fileName);
                 $targetFilePath = $targetDir . $fileName;
 
                 // Delete old image if exists
