@@ -55,10 +55,11 @@
         <section class="profile-card-container">
           <div class="profile-card">
             <div class="profile-picture">
-              <img src="uploads/<?php echo $user_image; ?>" 
-                alt="Profile Picture" 
-                class="profile-pic"
-              >
+              <img 
+                src="/FOODIE/images/studentImages/<?php echo $user_image; ?>" 
+                alt="Profile Picture"
+                onerror="this.src='/FOODIE/images/studentImages/default_student.png';"
+              />
             </div>
 
             <div class="profile-info">
