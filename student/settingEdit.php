@@ -1,69 +1,61 @@
-  <?php
-    session_start();
-    include("studconnection.php");
+<?php
+session_start();
+include("studconnection.php");
 
-    if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
-    {
-        header("Location: /FOODIE/landing-page/index.html");
+if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1) {
+    header("Location: /FOODIE/landing-page/index.html");
+}
+
+$studID = $_SESSION['studID'];
+$sql = "SELECT * FROM students WHERE studID='$studID'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+if(isset($_POST["edit"])) {
+    $studName = $_POST["studName"];
+    $studGender = $_POST["studGender"];
+    $studPhoneNo = $_POST["studPhoneNo"];
+    $MatricNo = $_POST["MatricNo"];
+    $studIcNo = $_POST["studIcNo"];
+    $studEmail = $_POST["studEmail"];
+    $password = !empty($_POST["password"]) ? $_POST["password"] : $row["password"]; // keep old password if blank
+
+    $user_image = $row["user_image"]; // default to existing image
+
+    if(isset($_FILES["user_image"]) && $_FILES["user_image"]["error"] === 0){
+        $targetDir = "uploads/";
+        $targetFile = $targetDir . basename($_FILES["user_image"]["name"]);
+
+        if(move_uploaded_file($_FILES["user_image"]["tmp_name"], $targetFile)){
+            $user_image = basename($_FILES["user_image"]["name"]);
+        }
     }
 
-    $studID = $_SESSION['studID'];
-    $sql = "SELECT * FROM students WHERE studID='$studID'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+    $update = "UPDATE students 
+               SET studName='$studName', studGender='$studGender', studPhoneNo='$studPhoneNo',
+                   MatricNo='$MatricNo', studIcNo='$studIcNo', studEmail='$studEmail', password='$password', 
+                   user_image='$user_image'
+               WHERE studID='$studID'";
 
-    if(isset($_POST["edit"]))
-    {
-      $studName = $_POST["studName"];
-      $studGender = $_POST["studGender"];
-      $studPhoneNo = $_POST["studPhoneNo"];
-      $MatricNo = $_POST["MatricNo"];
-      $studIcNo = $_POST["studIcNo"];
-      $studEmail = $_POST["studEmail"];
-      $password = !empty($_POST["password"]) ? $_POST["password"] : $row["password"]; // keeps old password if not edited
+    $run = mysqli_query($conn, $update);
 
-      $studImage = $row["profilePic"]; // keep old image by default
-
-      $user_image = $row["user_image"];
-
-      if(isset($_FILES["user_image"]) && $_FILES["user_image"]["error"] === 0){
-          $targetDir = "uploads/";
-          $targetFile = $targetDir . basename($_FILES["user_image"]["name"]);
-
-          if(move_uploaded_file($_FILES["user_image"]["tmp_name"], $targetFile)){
-              $user_image = basename($_FILES["user_image"]["name"]);
-          }
-      }
-
-      $update = "UPDATE students 
-                SET studName='$studName', studGender='$studGender', studPhoneNo='$studPhoneNo',
-                MatricNo='$MatricNo', studIcNo='$studIcNo', studEmail='$studEmail', password='$password', 
-                user_image='$user_image'
-                WHERE studID='$studID'";
-
-      $run = mysqli_query($conn, $update);
-
-      if($run)
-      {
+    if($run) {
         echo "<script>
-        alert('Details of student have been updated successfully.');
-        window.location='/FOODIE/student/setting.php';
-        </script>";
-      }
-      else
-      {
-        echo "<script>x
-        alert('Error! Failed to update details of student.');
-        window.location='/FOODIE/student/settingEdit.php';
-        </script>";
-      }
+                alert('Details of student have been updated successfully.');
+                window.location='/FOODIE/student/setting.php';
+              </script>";
+    } else {
+        echo "<script>
+                alert('Error! Failed to update details of student.');
+                window.location='/FOODIE/student/settingEdit.php';
+              </script>";
     }
+}
 
-    if(isset($_POST['Cancel']))
-    {
-        echo "<script language='javascript'>history.back();</script>";
-    }
-  ?>
+if(isset($_POST['Cancel'])) {
+    echo "<script>history.back();</script>";
+}
+?>
 
   <!DOCTYPE html>
   <html>
@@ -104,13 +96,11 @@
 
               <!--PROFILE PICTURE-->
               <div class="form-group">
+                <label for="studentName">Profile Pic: </label>
                 <div class="profile-pic-container">
-                    <label for="profilePicInput">
-                        <img src="uploads/<?php echo $row['user_image']; ?>" 
-                            alt="Profile Picture" 
-                            class="profile-pic">
-                    </label>
-                    <input type="file" name="profilePic" id="profilePicInput" accept="image/*">
+                  <div class="profile-picture">
+                    <img src="https://placehold.co/100x100/7b002c/ffffff?text=User"/>
+                  </div>
                 </div>
               </div>
 

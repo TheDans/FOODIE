@@ -16,6 +16,7 @@
   $studPhoneNo = $row['studPhoneNo'];
   $matricNo = $row['MatricNo'];
   $studEmail = $row['studEmail'];
+  $user_image = $row['user_image'];
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +54,10 @@
         <section class="profile-card-container">
           <div class="profile-card">
             <div class="profile-picture">
-               <img src="https://placehold.co/100x100/7b002c/ffffff?text=User"/>
+              <img src="uploads/<?php echo $user_image; ?>" 
+                alt="Profile Picture" 
+                class="profile-pic"
+              >
             </div>
 
             <div class="profile-info">
