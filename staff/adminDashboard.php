@@ -56,39 +56,56 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
 
         <!-- Personal information section -->
         <section class="info-section">
+          
           <h3 class="section-title">ADMIN'S PERSONAL INFORMATION</h3>
-          <div class="info-grid">
-            <div class="info-item">
-              <span class="info-label">NAME</span>
-              <span class="info-value"><?php echo $r['adminName']; ?></span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">IC NO</span>
-              <span class="info-value"><?php echo $r['adminIcNo']?></span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">GENDER</span>
-              <span class="info-value"><?php if($r['adminGender'] == 'M'){
-                echo "MALE";} 
-                else{
-                  echo "FEMALE";
-                }
-              ?></span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">Email Address</span>
-              <span class="info-value"><?php echo $r['adminEmail']?></span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">Phone No</span>
-              <span class="info-value"><?php echo $r['adminPhoneNo']?></span>
-            </div>
-            <div class="info-item">
-              <span class="info-label">USERNAME</span>
-              <span class="info-value"><?php echo $r['username']?></span>
-            </div>
-          </div>
+
+          <div class="info-wrapper">  <!-- THIS is the flex container -->
+
+              <div class="admin-img">
+                <img src="<?php echo $r['adminImage']; ?>" alt="Profile Picture">
+              </div>
+
+              <div class="info-grid">
+
+                <div class="info-item">
+                  <span class="info-label">NAME</span>
+                  <span class="info-value"><?php echo $r['adminName']; ?></span>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">IC NO</span>
+                  <span class="info-value"><?php echo $r['adminIcNo']?></span>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">GENDER</span>
+                  <span class="info-value">
+                    <?php echo ($r['adminGender'] == 'M') ? "MALE" : "FEMALE"; ?>
+                  </span>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">EMAIL ADDRESS</span>
+                  <span class="info-value"><?php echo $r['adminEmail']?></span>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">PHONE NO</span>
+                  <span class="info-value"><?php echo $r['adminPhoneNo']?></span>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">USERNAME</span>
+                  <span class="info-value"><?php echo $r['username']?></span>
+                </div>
+
+              </div> <!-- info-grid -->
+
+          </div> <!-- info-wrapper -->
+
         </section>
+
+
 
         <!--Statistics-->
         <section class="info-section">

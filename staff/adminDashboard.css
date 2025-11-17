@@ -128,7 +128,7 @@ aside {
 .info-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px 40px;
+  gap: 20px 100px;
   text-align: center;
   padding-top: 10px;
 }
@@ -136,7 +136,6 @@ aside {
 .info-item {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--border-color);
 }
 
 .info-label {
@@ -179,6 +178,21 @@ aside {
 .info-section h2 {
   color: black;
   text-align: center;
+}
+
+.info-wrapper {
+  display: flex;
+
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.admin-img img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 1024px) {

@@ -34,11 +34,11 @@ if(isset($_POST["add"])) {
     if(!empty($_FILES['adminImage']['name'])) {
 
         $fileName = $_FILES['adminImage']['name'];
-        $fileTmp  = $_FILES['adminImage']['tmp_name'];
+        $fileTmp = $_FILES['adminImage']['tmp_name'];
         $fileSize = $_FILES['adminImage']['size'];
 
         $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-        $allowed = ['jpg', 'jpeg', 'png', 'gif'];
+        $allowed = ['jpg','jpeg','png','gif'];
 
         if(!in_array($ext, $allowed)) {
             echo "<script>alert('Invalid file type! Only JPG, PNG, GIF allowed.');history.back();</script>";
@@ -46,18 +46,29 @@ if(isset($_POST["add"])) {
         }
 
         if($fileSize > 2 * 1024 * 1024) {
-            echo "<script>alert('File too large! Max 2MB');history.back();</script>";
+            echo "<script>alert('File too large! Maximum size: 2MB');history.back();</script>";
             exit;
         }
 
-        // New name
+        // New filename
         $newName = "admin_" . time() . "." . $ext;
-        $uploadPath = "/FOODIE/images/adminsImages/" . $newName;
 
-        move_uploaded_file($fileTmp, $uploadPath);
+        // REAL server directory
+        $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/FOODIE/images/adminsImages/";
+        $uploadPath = $targetDir . $newName;
 
-        $profileImage = $uploadPath;
+        // URL to save in database
+        $dbPath = "/FOODIE/images/adminsImages/" . $newName;
+
+        // Move uploaded file
+        if(move_uploaded_file($fileTmp, $uploadPath)) {
+            $profileImage = $dbPath;
+        } else {
+            echo "<script>alert('Image upload failed!');history.back();</script>";
+            exit;
+        }
     }
+
 
     $insert = "INSERT INTO admins 
     (adminID, adminName, adminGender, adminEmail, adminPhoneNo, username, adminIcNo, password, adminImage)
