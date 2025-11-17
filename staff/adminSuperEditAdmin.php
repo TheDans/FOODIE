@@ -79,7 +79,10 @@
                       <img src="'.($row['adminImage'] ?? '/FOODIE/images/adminsImages/default_admin.png').'" alt="Admin Image" />
                     </div>
                     <div class="info-grid">
-                      <h3 class="section-title">'.$adminName.' ('.$statusText.')</h3>
+                      <h3 class="section-title">
+                        '.$adminName.'
+                        <span class="status-badge '.$statusText.'">'.$statusText.'</span>
+                      </h3>
                       <div class="info-item">
                         <span class="info-label">Admin Id</span>
                         <span class="info-value">'.$adminID.'</span>
