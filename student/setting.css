@@ -169,22 +169,6 @@ aside {
   transform: scale(1.05);
 }
 
-
-.non-editable {
-  display : flex;
-  margin-bottom: 15px;
-}
-
-.non-editable h1 {
-  margin-right : 5px;
-  font-weight: bold;
-  font-size : 16px;
-}
-
-.non-editable p {
-  font-size : 16px;
-}
-
 .info-row {
   display: flex;
   margin-bottom: 15px;

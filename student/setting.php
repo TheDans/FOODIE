@@ -12,6 +12,7 @@
   $row = mysqli_fetch_assoc($result);
   $studID = $row['studID'];
   $studName = $row['studName'];
+  $studIcNo = $row['studIcNo'];
   $studGender = $row['studGender'];
   $studPhoneNo = $row['studPhoneNo'];
   $matricNo = $row['MatricNo'];
@@ -70,54 +71,72 @@
 
               
               <!-- STUDENT ID -->
-              <div class="non-editable">
+              <div class="info-row">
                 <h1>Student ID:</h1>
                 <p><?php echo $studID; ?></p>
               </div>
 
-              <!-- NAME -->
-              <div class="non-editable">
+              <!--MATRIC NUMBER-->
+              <div class="info-row">
+                <h1>Matric No:</h1>
+                <p><?php echo $matricNo; ?></p>
+              </div>
+
+              <!--STUDENT NAME-->
+              <div class="info-row">
                 <h1>Name:</h1>
                 <p><?php echo $studName; ?></p>
               </div>
 
-              <!-- EMAIL -->
+
+
+              <!--STUDENT EMAIL-->
               <div class="info-row">
                 <h1>Email:</h1>
                 <p><?php echo $studEmail; ?></p>
               </div>
 
-              <!-- PHONE NO -->
+              <!--IC NUMBER-->
+              <div class="info-row">
+                <h1>Ic No:</h1>
+                <p><?php echo $studIcNo; ?></p>
+              </div>
+
+              <!--PHONE NUMBER-->
               <div class="info-row">
                 <h1>Phone No:</h1>
                 <p><?php echo $studPhoneNo; ?></p>
               </div>
 
-              <!-- MATRIC NO -->
-              <div class="non-editable">
-                <h1>Matric No:</h1>
-                <p><?php echo $matricNo; ?></p>
+               <!--STUDENT GENDER-->
+              <div class="info-row">
+                <h1>Gender:</h1>
+                <p class="gender">
+                  <?php 
+                    if($row['studGender'] == 'M')
+                      {
+                        echo "Male";
+                      }
+                    else 
+                    {
+                      echo "Female";
+                    }
+                  ?>
+              </p>
               </div>
 
-              <!-- PASSWORD -->
+              <!--ROLE-->
+              <div class="info-row">
+                <h1>Role:</h1>
+                <p>Student</p>
+              </div>
+
+              <!--PASSWORD-->
               <div class="info-row">
                 <h1>Password:</h1>
                 <p>********</p>
               </div>
 
-              <p class="role">Student</p>
-              <p class="gender">
-                <?php 
-                  if($row['studGender'] == 'M')
-                    {
-                      echo "Male";
-                    }
-                  else 
-                  {
-                    echo "Female";
-                  }
-                ?>
-              </p>
             </div>
           </div>
         </section>
