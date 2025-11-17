@@ -76,50 +76,6 @@
 			
 			<body>
 			
-
-    <script>
-      //jQuery for validate blank input
-      $(document).ready(function () {
-        $('input[type="submit"]').click(function () {
-          var m = $("#MatricNo").val();
-          var p = $("#password").val();
-
-          // Checking for blank fields.
-          if (m == "" && p == "") {
-            $('input[type="text"]').css("background-color", "#ffb3b3");
-            $('input[type="password"]').css("background-color", "#ffb3b3");
-            alert("Please fill all fields!");
-            return false;
-          } else if (m == "") {
-            $("#MatricNo").css("background-color", "#ffb3b3");
-            alert("Please fill Matric Number fields!");
-            return false;
-          } else if (p == "") {
-            $("#password").css("background-color", "#ffb3b3");
-            alert("Please fill Password fields!");
-            return false;
-          } else {
-            return true;
-          }
-        });
-
-        $("#MatricNo").focus(function () {
-          $("#MatricNo").css("background-color", "#99ccff");
-        });
-
-        $("#password").focus(function () {
-          $("#password").css("background-color", "#99ccff");
-        });
-
-        $('input[type="text"]').focusout(function () {
-          $('input[type="text"]').css("background-color", "white");
-        });
-
-        $('input[type="password"]').focusout(function () {
-          $('input[type="password"]').css("background-color", "white");
-        });
-      });
-    </script>
   </head>
   <!-- Top Navigation Bar -->
   <div class="content-wrapper">
