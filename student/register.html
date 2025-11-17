@@ -21,6 +21,7 @@
 			const form = document.getElementById("registerForm");
 
 			form.addEventListener("submit", function(event) {
+
 				// Get all input and select fields
 				const inputs = form.querySelectorAll("input[required], select[required]");
 				let valid = true;
@@ -74,9 +75,11 @@
             <div class="form-group">
 				<label for="email">Email</label>
 				<input type="email" name="email" id="email" 
-					placeholder="Enter your email" 
-					maxlength="255" 
+					placeholder="Enter your email"
+					maxlength="255"
+					title="Please put characters not more than 255."					
 					required
+					style="font-size:17px;"
 				/>
 			</div>
 
@@ -87,9 +90,10 @@
 				<input type="text" name="name" id="name" 
 					placeholder="Enter your full name" 
 					maxlength="255" 
-					pattern="[A-Za-z\s]+" 
-					title="Name can contain letters and spaces only" 
+					pattern="[A-Za-z@'\s]+"
+                    title="Name can contain letters, spaces, @, and ' only"
 					required
+					style="font-size:17px;"
 				/>
 			</div>
             
@@ -98,21 +102,26 @@
                 <div class="form-group">
 					<label for="icNo">IC Number</label>
 					<input type="text" name="icNo" id="icNo" 
-						placeholder="e.g. 990101123456" 
-						maxlength="12" pattern="[0-9]{12}" 
-						title="Enter exactly 12 digits, e.g., 990101123456" 
+                        placeholder="e.g. 990101123456" 
+                        minlength="12"
+						maxlength="12"
+                        pattern="\d+"
+                        title="Enter exactly 12 digits, e.g., 990101123456" 
 						required
+						style="font-size:17px;"
 					/>
 				</div>
                 
 				<div class="form-group">
-					<label for="matricId">Matric ID</label>
-					<input type="text" name="matricId" id="matricId" 
-						placeholder="e.g. A123" 
-						minlength="3" maxlength="20" 
-						pattern="[A-Za-z0-9]{3,20}" 
+					<label for="MatricNo">Matric No</label>
+					<input type="text" name="MatricNo" id="MatricNo" 
+						placeholder="e.g. A123"
+						minlength="3"
+						maxlength="20" 
+						pattern="[A-Za-z0-9]+"
 						title="Enter 3-20 characters, letters and numbers only, e.g., A123" 
 						required
+						style="font-size:17px;"
 					/>
 				</div>
 
@@ -123,16 +132,19 @@
                 <div class="form-group">
 					<label for="phoneNo">Phone No</label>
 					<input type="text" name="phoneNo" id="phoneNo" 
-						placeholder="e.g. 012345678" 
-						maxlength="11" pattern="[0-9]{9,11}" 
-						title="Enter 9–11 digits, e.g., 012345678 or 01123456789" 
-						required 
+						placeholder="e.g. 0123456789"
+						minlength="9" 
+						maxlength="11"
+						pattern="\d+"
+						title="Enter 9-11 digits, e.g., 012345678 or 01123456789"
+						required
+						style="font-size:17px;"
 					/>
 				</div>
                 <div class="form-group">
                     <label for="gender">Gender</label>
                     <select name="gender" id="gender" required>
-                        <option value="Choose" >Choose</option>
+                        <option value="">Choose</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
                     </select>
@@ -143,10 +155,12 @@
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password" 
 					placeholder="Enter password" 
-					minlength="8" maxlength="30" 
-					pattern="(?=.*[A-Z])(?=.*[0-9]).{8,30}" 
-					title="Password must be 8-30 characters, contain at least 1 uppercase letter and 1 number" 
-					required />
+					minlength="8"
+					maxlength="30" 
+					pattern="(?=.*[A-Z])(?=.*\d)[^\s]+"
+					title="Password must include at least 1 uppercase letter, 1 digit, and no spaces" 
+					required
+				/>
 			</div>
 
 			<div class="form-group">
@@ -154,7 +168,9 @@
 				<input type="password" name="confirmPassword" id="confirmPassword" 
 					placeholder="Re-enter password" 
 					minlength="8" maxlength="30" 
-					required />
+					required
+					oninput="this.setCustomValidity(this.value !== document.getElementById('password').value ? 'Passwords do not match.' : '')"
+				/>
 			</div>
             
             <input type="submit" class="btn" name="btnRegister" value="REGISTER"/>

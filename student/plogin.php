@@ -2,7 +2,8 @@
 
 include("studconnection.php");
 
-if (!$conn) {
+if (!$conn)
+{
     die("Database connection failed: " . mysqli_connect_error());
 }
 
@@ -16,36 +17,37 @@ $sql = "SELECT * FROM students s
 		and password = '$password'";
 
 // Check if MatricNo or password contain spaces
-if (preg_match('/\s/', $MatricNo)) {
-    echo "<script>alert('Matric ID cannot contain spaces.'); window.location='login.html';</script>";
-    exit;
+if (preg_match('/\s/', $MatricNo))
+{
+	echo "<script>alert('Matric ID cannot contain spaces.'); window.location='login.html';</script>";
+	exit;
 }
 
-if (preg_match('/\s/', $password)) {
+if (preg_match('/\s/', $password))
+{
     echo "<script>alert('Password cannot contain spaces.'); window.location='login.html';</script>";
     exit;
 }
 
-// Optional: you can also enforce min/max lengths
-if (strlen($MatricNo) < 3 || strlen($MatricNo) > 20) {
+if (strlen($MatricNo) < 3 || strlen($MatricNo) > 20)
+{
     echo "<script>alert('Matric ID must be 3-20 characters.'); window.location='login.html';</script>";
     exit;
 }
 
-if (strlen($password) < 8 || strlen($password) > 30) {
+if (strlen($password) < 8 || strlen($password) > 30)
+{
     echo "<script>alert('Password must be 8-30 characters.'); window.location='login.html';</script>";
     exit;
 }
 	
-//echo &sql;
+
 $qry = mysqli_query($conn, $sql);
 $row = mysqli_num_rows($qry);
 
 		if($row > 0)
 		{
 			$r = mysqli_fetch_assoc($qry);
-			
-			//$_SESSION store information (in variables) to be used across multiple pages
 			
 			session_start();
 			

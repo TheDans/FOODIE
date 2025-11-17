@@ -127,7 +127,6 @@
       <div class="logo">FOODIE.</div>
       <nav class="nav-links">
 				<a href="/FOODIE/landing-page/index.html">ABOUT US</a>
-
 				<a href="/FOODIE/staff/Staff.html">ADMIN LOGIN</a>
 				<a href="/FOODIE/student/login.html">STUDENT LOGIN</a>
       </nav>
@@ -142,21 +141,24 @@
       <form id="login" name="login" method="post" action="plogin.php">
         <label for="MatricNo">Matric ID</label>
         <input type="text" name="MatricNo" id="MatricNo"
-          placeholder="Enter here"
-          maxlength="20"
-          pattern="[A-Za-z0-9]{3,20}"
-          title="Matric ID must be 3–20 characters, letters and numbers only, no spaces"
-          required
+						placeholder="e.g. A123"
+						minlength="3"
+						maxlength="20" 
+						pattern="[A-Za-z0-9]+"
+						title="Enter 3-20 characters, letters and numbers only, e.g., A123" 
+						required
+						style="font-size:17px;"
         />
 
         <label for="password">Password</label>
         <input 
           type="password" name="password" id="password"
-          placeholder="Enter here"
-          maxlength="30"
-          pattern="(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]{8,30}"
-          title="Password must be 8–30 characters, at least 1 uppercase, 1 number, no spaces"
-          required 
+          placeholder="Enter password" 
+					minlength="8"
+					maxlength="30" 
+					pattern="(?=.*[A-Z])(?=.*\d)[^\s]+"
+					title="Password must include at least 1 uppercase letter, 1 digit, and no spaces" 
+					required
         />
         
         <input type="submit" class="btn" name="btnlogin" value="LOGIN" />
