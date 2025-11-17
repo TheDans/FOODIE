@@ -189,7 +189,12 @@
 
               <div class="form-group">
                 <label>Current Profile Picture</label><br>
-                <img src="<?php echo $row['adminImage']; ?>" width="120" style="border-radius:8px;"/>
+                <img 
+                  src="<?php echo !empty($row['adminImage']) ? $row['adminImage'] : '/FOODIE/images/default_admin.png'; ?>" 
+                  width="120" 
+                  style="border-radius:8px;"
+                  alt="Admin Profile Picture"
+                />
               </div>
 
               <div class="form-group">
