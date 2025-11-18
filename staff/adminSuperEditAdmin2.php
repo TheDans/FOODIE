@@ -44,7 +44,7 @@
 
               // New filename
               $random = rand(10000, 99999);
-              $newName = "admin_" . $adminID . "_" . $random . "." . $ext;
+              $newName = "admin_" . $adminId . "_" . $random . "." . $ext;
 
               // REAL server directory
               $targetDir = $_SERVER['DOCUMENT_ROOT'] . "/FOODIE/images/adminsImages/";
