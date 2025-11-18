@@ -139,7 +139,7 @@
 
               <!--PROFILE PICTURE-->
               <div class="form-group">
-                <label for="user_image">Cuurent Pic:</label>
+                <label for="user_image">Current Pic:</label>
                 <div class="profile-pic-container">
                   <!-- Show current image -->
                   <img 
