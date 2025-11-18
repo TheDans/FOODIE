@@ -9,8 +9,9 @@ if(!isset($_SESSION['userlogged']) || $_SESSION['userlogged'] != 1)
 }
 
 				$username= $_SESSION['username'];
+        $adminID = $_SESSION['adminID'];
 			
-				$sql = "SELECT * FROM admins a WHERE username = '$username'";
+				$sql = "SELECT * FROM admins a WHERE adminID = '$adminID'";
 				
 				$qry = mysqli_query($conn, $sql);
 				$row = mysqli_num_rows($qry);
